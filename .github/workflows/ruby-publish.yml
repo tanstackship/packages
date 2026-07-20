@@ -1,0 +1,29 @@
+name: Publish Ruby Gem
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+      
+      - name: Build gem
+        run: |
+          cd ruby/utm_parse
+          gem build utm_parse.gemspec
+      
+      - name: Publish to RubyGems
+        run: |
+          cd ruby/utm_parse
+          gem push tanstack_utm_parse-${{ github.event.release.tag_name }}.gem
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
