@@ -1,0 +1,29 @@
+{
+  "name": "@tanstackship/campaigns",
+  "version": "1.0.0",
+  "description": "Email campaign management. Send transactional and marketing emails.",
+  "keywords": ["email", "campaign", "marketing", "saas", "tanstack"],
+  "homepage": "https://tanstackship.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orgs/tanstackship",
+    "directory": "packages/campaigns"
+  },
+  "license": "MIT",
+  "author": { "name": "Huifer", "email": "about@tanstackship.com" },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "prepublishOnly": "pnpm build"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}

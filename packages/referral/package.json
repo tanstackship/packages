@@ -1,0 +1,31 @@
+{
+  "name": "@tanstackship/referral",
+  "version": "1.0.0",
+  "description": "Referral system for SaaS apps. Create referral links, track referrals, and manage rewards.",
+  "keywords": ["referral", "affiliate", "rewards", "saas", "tanstack"],
+  "homepage": "https://tanstackship.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orgs/tanstackship",
+    "directory": "packages/referral"
+  },
+  "license": "MIT",
+  "author": { "name": "Huifer", "email": "about@tanstackship.com" },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "test": "vitest",
+    "prepublishOnly": "pnpm build"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}

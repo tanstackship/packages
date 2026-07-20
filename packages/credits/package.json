@@ -1,0 +1,31 @@
+{
+  "name": "@tanstackship/credits",
+  "version": "1.0.0",
+  "description": "Credits/balance system for SaaS apps. Track user balance, transactions, and usage-based billing.",
+  "keywords": ["credits", "balance", "billing", "saas", "tanstack"],
+  "homepage": "https://tanstackship.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orgs/tanstackship",
+    "directory": "packages/credits"
+  },
+  "license": "MIT",
+  "author": { "name": "Huifer", "email": "about@tanstackship.com" },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "test": "vitest",
+    "prepublishOnly": "pnpm build"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}

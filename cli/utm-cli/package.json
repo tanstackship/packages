@@ -1,0 +1,26 @@
+{
+  "name": "@tanstackship/utm-cli",
+  "version": "1.0.0",
+  "description": "UTM parsing CLI tool. Parse, validate, and analyze UTM parameters from URLs.",
+  "keywords": ["utm", "cli", "marketing", "analytics", "tanstack"],
+  "homepage": "https://tanstackship.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orgs/tanstackship",
+    "directory": "cli/utm-cli"
+  },
+  "license": "MIT",
+  "author": { "name": "Huifer", "email": "about@tanstackship.com" },
+  "type": "module",
+  "bin": {
+    "utm": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "start": "node dist/index.js",
+    "prepublishOnly": "pnpm build"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

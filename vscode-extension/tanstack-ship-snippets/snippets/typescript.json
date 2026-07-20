@@ -1,0 +1,140 @@
+{
+  "UTM Capture Hook": {
+    "prefix": ["utm-capture", "useutm", "tanstack-utm"],
+    "body": [
+      "import { captureUtmFromUrl, writeUtmCookie, readUtmCookie } from '@tanstackship/utm-tracker'",
+      "",
+      "export function useUtmCapture() {",
+      "  useEffect(() => {",
+      "    const utm = captureUtmFromUrl()",
+      "    if (utm) {",
+      "      writeUtmCookie(utm)",
+      "    }",
+      "  }, [])",
+      "",
+      "  return readUtmCookie()",
+      "}"
+    ],
+    "description": "Hook to capture and store UTM parameters"
+  },
+
+  "Server Function": {
+    "prefix": ["ts-serverfn", "server-function", "tanstack-server"],
+    "body": [
+      "import { createServerFn } from '@tanstack/react-start'",
+      "",
+      "export const ${1:getSomething} = createServerFn({",
+      "  method: 'GET',",
+      "})",
+      "  .handler(async () => {",
+      "    ${2:// server logic here}",
+      "    return ${3:value}",
+      "  })"
+    ],
+    "description": "Create a TanStack Start server function"
+  },
+
+  "TanStack Router Route": {
+    "prefix": ["ts-route", "router-route", "tanstack-route"],
+    "body": [
+      "import { createFileRoute } from '@tanstack/react-router'",
+      "",
+      "export const Route = createFileRoute('${1:/path}')({",
+      "  loader: async () => {",
+      "    ${2:// data loading logic}",
+      "  },",
+      "  component: ${3:Component},",
+      "})"
+    ],
+    "description": "Create a TanStack Router file route"
+  },
+
+  "TanStack Query Hook": {
+    "prefix": ["usequery", "tanstack-query", "ts-query"],
+    "body": [
+      "import { useQuery } from '@tanstack/react-query'",
+      "",
+      "export function use${1:Something}(${2}: ${3:any}) {",
+      "  return useQuery({",
+      "    queryKey: ['${4:key}', ${5}: ${6}], ",
+      "    queryFn: async () => {",
+      "      ${7:// fetch logic}",
+      "    },",
+      "  })",
+      "}"
+    ],
+    "description": "Create a TanStack Query hook"
+  },
+
+  "Stripe Checkout": {
+    "prefix": ["stripe-checkout", "ts-checkout", "tanstack-stripe"],
+    "body": [
+      "import { createCheckoutSession } from '@tanstackship/stripe-utils'",
+      "",
+      "const session = await createCheckoutSession({",
+      "  priceId: '${1:price_id}',",
+      "  successUrl: '${2:/success}',",
+      "  cancelUrl: '${3:/cancel}',",
+      "})",
+      "",
+      "window.location.href = session.url"
+    ],
+    "description": "Create a Stripe checkout session"
+  },
+
+  "Referral Link": {
+    "prefix": ["referral", "tanstack-referral"],
+    "body": [
+      "import { useReferral } from '@tanstackship/referral'",
+      "",
+      "const { code, stats, shareLink } = useReferral()"
+    ],
+    "description": "Use referral system"
+  },
+
+  "Credits Check": {
+    "prefix": ["credits", "tanstack-credits"],
+    "body": [
+      "import { useCredits } from '@tanstackship/credits'",
+      "",
+      "const { balance, deduct } = useCredits()"
+    ],
+    "description": "Use credits system"
+  },
+
+  "Coupon Validation": {
+    "prefix": ["coupon", "tanstack-coupon"],
+    "body": [
+      "import { useCoupon } from '@tanstackship/coupons'",
+      "",
+      "const { validate, redeem, coupon } = useCoupon()"
+    ],
+    "description": "Use coupon system"
+  },
+
+  "Analytics Track": {
+    "prefix": ["track", "analytics", "tanstack-analytics"],
+    "body": [
+      "import { useAnalytics } from '@tanstackship/analytics'",
+      "",
+      "const { track } = useAnalytics()",
+      "",
+      "track('${1:event_name}', {",
+      "  ${2:property}: ${3:value}",
+      "})"
+    ],
+    "description": "Track analytics event"
+  },
+
+  "i18n Translation": {
+    "prefix": ["i18n", "useTranslation", "tanstack-i18n"],
+    "body": [
+      "import { useTranslation } from '@inlang/paraglide-js'",
+      "",
+      "const { t } = useTranslation(${1:namespace})",
+      "",
+      "// usage: t('${2:key}')"
+    ],
+    "description": "Use i18n translation"
+  }
+}
