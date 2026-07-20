@@ -1,0 +1,95 @@
+name: Publish npm Packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Package name to publish (e.g., utm-tracker)'
+        required: true
+        type: choice
+        options:
+          - utm-tracker
+          - short-link
+          - pricing-engine
+          - schema-builder
+          - auth
+          - stripe-utils
+          - i18n
+          - rate-limit
+      version:
+        description: 'Version bump type (patch, minor, major, or specific version)'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@tanstackship'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install package dependencies
+        run: pnpm --filter @tanstackship/${{ inputs.package }} install
+
+      - name: Lint
+        run: pnpm --filter @tanstackship/${{ inputs.package }} lint || true
+
+      - name: Type check
+        run: pnpm --filter @tanstackship/${{ inputs.package }} build
+
+      - name: Run tests
+        run: pnpm --filter @tanstackship/${{ inputs.package }} test
+
+      - name: Update version
+        run: |
+          cd packages/${{ inputs.package }}
+          if [[ "${{ inputs.version }}" == "patch" || "${{ inputs.version }}" == "minor" || "${{ inputs.version }}" == "major" ]]; then
+            npm version ${{ inputs.version }} --no-git-tag-version
+          else
+            npm version ${{ inputs.version }} --no-git-tag-version
+          fi
+          cat package.json | grep '"version"'
+
+      - name: Build
+        run: pnpm --filter @tanstackship/${{ inputs.package }} build
+
+      - name: Publish to npm
+        run: |
+          cd packages/${{ inputs.package }}
+          npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub Release
+        if: inputs.version != 'patch' || github.event_name == 'workflow_dispatch'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ inputs.package }}-v${{ steps.version.outputs.version }}
+          release_name: ${{ inputs.package }} v${{ steps.version.outputs.version }}
+          files: packages/${{ inputs.package }}/dist/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

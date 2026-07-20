@@ -1,0 +1,31 @@
+{
+  "name": "@tanstackship/schema-builder",
+  "version": "0.0.1",
+  "description": "JSON-LD Schema.org generator for web apps. Build FAQPage, Product, BlogPosting, SoftwareApplication schemas easily.",
+  "keywords": ["seo", "schema", "json-ld", "structured-data", "schema.org", "tanstack"],
+  "homepage": "https://tanstackship.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orgs/tanstackship",
+    "directory": "packages/schema-builder"
+  },
+  "license": "MIT",
+  "author": { "name": "Huifer", "url": "https://tanstackship.com/about" },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "test": "vitest",
+    "prepublishOnly": "pnpm build"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}

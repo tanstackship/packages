@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "utm-parse"
+version = "0.1.0"
+description = "Fast UTM parameter parsing and normalization library"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Huifer", email = "about@tanstackship.com"}
+]
+homepage = "https://tanstackship.com"
+repository = "https://github.com/orgs/tanstackship"
+documentation = "https://github.com/orgs/tanstackship/python-utm-parse"
+keywords = ["utm", "tracking", "analytics", "marketing"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.9"
+
+[project.urls]
+Homepage = "https://tanstackship.com"
+Documentation = "https://github.com/orgs/tanstackship/python-utm-parse"
+Repository = "https://github.com/orgs/tanstackship/python-utm-parse"
+Changelog = "https://github.com/orgs/tanstackship/python-utm-parse/releases"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,133 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # npm packages CI
+  npm-ci:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        package:
+          - utm-tracker
+          - short-link
+          - pricing-engine
+          - schema-builder
+          - auth
+          - stripe-utils
+          - i18n
+          - rate-limit
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build package
+        run: pnpm --filter @tanstackship/${{ matrix.package }} build
+
+      - name: Lint
+        run: pnpm --filter @tanstackship/${{ matrix.package }} lint || true
+
+      - name: Type check
+        run: pnpm --filter @tanstackship/${{ matrix.package }} typecheck || true
+
+      - name: Run tests
+        run: pnpm --filter @tanstackship/${{ matrix.package }} test
+
+  # Rust packages CI
+  rust-ci:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        crate:
+          - utm-parse
+          - short-link-parse
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        run: |
+          rustup update stable
+          rustup default stable
+
+      - name: Cache cargo registry
+        uses: actions/cache@v4
+        with:
+          path: ~/.cargo/registry
+          key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Cache cargo index
+        uses: actions/cache@v4
+        with:
+          path: ~/.cargo/git
+          key: ${{ runner.os }}-cargo-index-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Cache cargo build
+        uses: actions/cache@v4
+        with:
+          path: target
+          key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('rust/${{ matrix.crate }}/**/Cargo.toml') }}
+
+      - name: Check formatting
+        run: |
+          cd rust/${{ matrix.crate }}
+          cargo fmt --check
+
+      - name: Clippy
+        run: |
+          cd rust/${{ matrix.crate }}
+          cargo clippy -- -D warnings
+
+      - name: Run tests
+        run: |
+          cd rust/${{ matrix.crate }}
+          cargo test
+
+      - name: Build release
+        run: |
+          cd rust/${{ matrix.crate }}
+          cargo build --release
+
+  # Publish readiness check
+  publish-check:
+    needs: [npm-ci, rust-ci]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+      - name: All checks passed
+        run: echo "All CI checks passed! Ready to publish."

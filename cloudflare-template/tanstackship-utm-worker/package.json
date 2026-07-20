@@ -1,0 +1,14 @@
+{
+  "name": "tanstackship-utm-worker",
+  "version": "1.0.0",
+  "description": "UTM tracking worker for Cloudflare Workers",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0",
+    "@cloudflare/workers-types": "^4.20240117.0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "tanstackship-packages",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Monorepo for TanStack Ship independent packages",
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "publish": "pnpm -r publish --access public"
+  }
+}

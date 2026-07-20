@@ -1,0 +1,23 @@
+[package]
+name = "short-link-parse"
+version = "0.1.0"
+edition = "2021"
+description = "URL fingerprinting and short link deduplication library"
+license = "MIT"
+authors = ["Huifer <about@tanstackship.com>"]
+homepage = "https://tanstackship.com"
+repository = "https://github.com/orgs/tanstackship"
+documentation = "https://docs.rs/short-link-parse"
+keywords = ["url", "short-link", "deduplication", "fingerprint"]
+categories = ["web-programming", "url"]
+
+[dependencies]
+url = "2.5"
+thiserror = "1.0"
+
+[dev-dependencies]
+criterion = "0.5"
+
+[[bench]]
+name = "short_link_bench"
+harness = false

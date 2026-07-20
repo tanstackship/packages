@@ -1,0 +1,34 @@
+{
+  "name": "@tanstackship/stripe-utils",
+  "version": "0.0.1",
+  "description": "Stripe integration utilities for TanStack apps. Webhook handling, checkout flows, and subscription management helpers.",
+  "keywords": ["stripe", "payments", "subscription", "checkout", "tanstack"],
+  "homepage": "https://tanstackship.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orgs/tanstackship",
+    "directory": "packages/stripe-utils"
+  },
+  "license": "MIT",
+  "author": { "name": "Huifer", "url": "https://tanstackship.com/about" },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "test": "vitest",
+    "prepublishOnly": "pnpm build"
+  },
+  "peerDependencies": {
+    "stripe": ">=14.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}

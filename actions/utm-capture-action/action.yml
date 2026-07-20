@@ -1,0 +1,28 @@
+name: "UTM Capture"
+description: "Capture UTM parameters from referrer URL and set as outputs"
+author: "Huifer <about@tanstackship.com>"
+branding:
+  icon: "tag"
+  color: "blue"
+
+inputs:
+  ref:
+    description: "Referrer URL to parse"
+    required: false
+    default: "${{ github.event.client_payload.ref || github.event.head_commit.message }}"
+
+outputs:
+  utm_source:
+    description: "UTM source"
+  utm_medium:
+    description: "UTM medium"
+  utm_campaign:
+    description: "UTM campaign"
+  utm_term:
+    description: "UTM term"
+  utm_content:
+    description: "UTM content"
+
+runs:
+  using: "node20"
+  main: "index.js"

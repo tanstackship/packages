@@ -1,0 +1,60 @@
+{
+  "UTM Capture Hook": {
+    "prefix": ["utm-capture", "useutm"],
+    "body": [
+      "import { captureUtmFromUrl, writeUtmCookie, readUtmCookie } from '@tanstackship/utm-tracker'",
+      "",
+      "export function useUtmCapture() {",
+      "  useEffect(() => {",
+      "    const utm = captureUtmFromUrl()",
+      "    if (utm) writeUtmCookie(utm)",
+      "  }, [])",
+      "",
+      "  return readUtmCookie()",
+      "}"
+    ],
+    "description": "Hook to capture and store UTM parameters"
+  },
+  "Server Function": {
+    "prefix": ["ts-serverfn", "server-function"],
+    "body": [
+      "import { createServerFn } from '@tanstack/react-start'",
+      "",
+      "export const ${1:getSomething} = createServerFn({",
+      "  method: 'GET',",
+      "})",
+      "  .handler(async () => {",
+      "    ${2:// server logic here}",
+      "    return ${3:value}",
+      "  })"
+    ],
+    "description": "Create a TanStack Start server function"
+  },
+  "TanStack Router Route": {
+    "prefix": ["ts-route", "router-route"],
+    "body": [
+      "import { createFileRoute } from '@tanstack/react-router'",
+      "",
+      "export const Route = createFileRoute('${1:/path}')({",
+      "  loader: async () => {",
+      "    ${2:// data loading logic}",
+      "  },",
+      "  component: ${3:Component},",
+      "})"
+    ],
+    "description": "Create a TanStack Router file route"
+  },
+  "Stripe Checkout": {
+    "prefix": ["stripe-checkout", "ts-checkout"],
+    "body": [
+      "import { createCheckoutSession } from '@tanstackship/stripe-utils'",
+      "",
+      "const session = await createCheckoutSession({",
+      "  priceId: '${1:price_id}',",
+      "  successUrl: '${2:/success}',",
+      "  cancelUrl: '${3:/cancel}',",
+      "})"
+    ],
+    "description": "Create a Stripe checkout session"
+  }
+}

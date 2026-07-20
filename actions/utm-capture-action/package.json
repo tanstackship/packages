@@ -1,0 +1,12 @@
+{
+  "name": "utm-capture-action",
+  "version": "1.0.0",
+  "description": "Capture UTM parameters from referrer URLs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests yet\""
+  },
+  "keywords": ["github-actions", "utm", "tracking"],
+  "author": "Huifer <about@tanstackship.com>",
+  "license": "MIT"
+}

@@ -1,0 +1,44 @@
+{
+  "name": "tanstack-ship-snippets",
+  "displayName": "TanStack Ship Snippets",
+  "description": "Code snippets for TanStack Ship SaaS boilerplate",
+  "version": "1.0.0",
+  "publisher": "tanstackship",
+  "author": {
+    "name": "Huifer",
+    "email": "about@tanstackship.com"
+  },
+  "homepage": "https://tanstackship.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orgs/tanstackship"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/react.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/react.json"
+      }
+    ]
+  },
+  "keywords": [
+    "tanstack",
+    "tanstack-start",
+    "tanstack-router",
+    "tanstack-query",
+    "snippets",
+    "saas",
+    "cloudflare"
+  ]
+}
