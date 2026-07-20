@@ -1,14 +1,11 @@
 //! URL Parser
 
-use crate::alloc::{string::String, vec::Vec};
 use crate::params::{Source, UtmParams};
-use crate::platform::{detect_platform, PLATFORM_CLICK_IDS};
+use crate::platform::PLATFORM_CLICK_IDS;
 
-/// Parse UTM parameters from URL
 pub fn parse_url(url: &str) -> UtmParams {
     let mut params = UtmParams::new();
 
-    // Find query string
     if let Some(query_start) = url.find('?') {
         let query = &url[query_start + 1..];
         parse_query_string(query, &mut params);
@@ -28,8 +25,8 @@ fn parse_query_string(query: &str, params: &mut UtmParams) {
         };
 
         match key {
-            "utm_source" | "utm_source" => {
-                params.source = Some(detect_source(&value));
+            "utm_source" => {
+                params.source = Some(detect_source(value));
             }
             "utm_medium" => {
                 params.medium = Some(value);
@@ -44,14 +41,12 @@ fn parse_query_string(query: &str, params: &mut UtmParams) {
                 params.content = Some(value);
             }
             _ => {
-                // Check for click IDs
-                if let Some(platform) = PLATFORM_CLICK_IDS.get(key) {
-                    if params.source.is_none() {
-                        params.source = Some(detect_platform(key, platform));
+                for (id, platform) in PLATFORM_CLICK_IDS {
+                    if key == *id && params.source.is_none() {
+                        params.source = Some(detect_platform(platform));
+                        break;
                     }
-                    params.click_id = Some((key.to_string(), value));
                 }
-                params.raw_params.push((key.to_string(), value));
             }
         }
     }
@@ -72,14 +67,28 @@ fn detect_source(value: &str) -> Source {
     }
 }
 
+fn detect_platform(platform: &str) -> Source {
+    match platform {
+        "google" => Source::Google,
+        "facebook" => Source::Facebook,
+        "twitter" => Source::Twitter,
+        "linkedin" => Source::LinkedIn,
+        "bing" => Source::Bing,
+        "tiktok" => Source::TikTok,
+        "reddit" => Source::Reddit,
+        "github" => Source::Github,
+        _ => Source::Unknown(platform.to_string()),
+    }
+}
+
 fn url_decode(s: &str) -> String {
-    let mut result = String::with_capacity(s.len());
+    let mut result = String::new();
     let mut chars = s.chars().peekable();
 
     while let Some(c) = chars.next() {
         if c == '%' {
             let hex: String = chars.by_ref().take(2).collect();
-            if let Ok(byte) = u8::from_str_radix(&hex, 16) {
+            if let Ok(byte) in u8::from_str_radix(&hex, 16) {
                 result.push(byte as char);
             } else {
                 result.push('%');
