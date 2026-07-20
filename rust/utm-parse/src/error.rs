@@ -1,30 +1,33 @@
-//! Error types for UTM parsing
+//! Error types
 
-use core::fmt;
+use crate::alloc::string::String;
 
-/// Errors that can occur during UTM parsing
+/// Error type
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum UtmError {
-    /// URL is empty
-    EmptyUrl,
-    /// URL is invalid
-    InvalidUrl,
-    /// URL contains invalid percent encoding
-    InvalidEncoding,
-    /// URL exceeds maximum length
-    UrlTooLong,
+pub enum Error {
+    /// Invalid URL
+    InvalidUrl(String),
+    /// Parse error
+    ParseError(String),
 }
 
-impl fmt::Display for UtmError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+impl Error {
+    pub fn invalid_url(s: &str) -> Self {
+        Error::InvalidUrl(s.to_string())
+    }
+
+    pub fn parse_error(s: &str) -> Self {
+        Error::ParseError(s.to_string())
+    }
+}
+
+impl core::fmt::Display for Error {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self {
-            UtmError::EmptyUrl => write!(f, "URL is empty"),
-            UtmError::InvalidUrl => write!(f, "URL is invalid"),
-            UtmError::InvalidEncoding => write!(f, "URL contains invalid percent encoding"),
-            UtmError::UrlTooLong => write!(f, "URL exceeds maximum length"),
+            Error::InvalidUrl(s) => write!(f, "Invalid URL: {}", s),
+            Error::ParseError(s) => write!(f, "Parse error: {}", s),
         }
     }
 }
 
-#[cfg(feature = "std")]
-impl std::error::Error for UtmError {}
+pub type Result<T> = core::result::Result<T, Error>;

@@ -1,121 +1,99 @@
-//! UTM parameter structures
+//! UTM Parameters
 
-use alloc::string::String;
-use serde::{Deserialize, Serialize};
+use crate::alloc::{format, string::String, vec::Vec};
 
-/// Known source platforms
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+/// Traffic source
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Source {
-    /// Google
     Google,
-    /// Facebook
     Facebook,
-    /// Twitter
     Twitter,
-    /// LinkedIn
     LinkedIn,
-    /// Instagram
-    Instagram,
-    /// TikTok
-    TikTok,
-    /// Bing
     Bing,
-    /// Newsletter
-    Newsletter,
-    /// Product Hunt
-    ProductHunt,
-    /// GitHub
-    GitHub,
-    /// Reddit
+    TikTok,
     Reddit,
-    /// Discord
-    Discord,
-    /// Referral
-    Referral,
-    /// Direct
+    Github,
     Direct,
-    /// Custom source
-    Custom(String),
+    Unknown(String),
 }
 
 impl Source {
-    /// Convert source to string
     pub fn as_str(&self) -> &str {
         match self {
             Source::Google => "google",
             Source::Facebook => "facebook",
             Source::Twitter => "twitter",
             Source::LinkedIn => "linkedin",
-            Source::Instagram => "instagram",
-            Source::TikTok => "tiktok",
             Source::Bing => "bing",
-            Source::Newsletter => "newsletter",
-            Source::ProductHunt => "producthunt",
-            Source::GitHub => "github",
+            Source::TikTok => "tiktok",
             Source::Reddit => "reddit",
-            Source::Discord => "discord",
-            Source::Referral => "referral",
+            Source::Github => "github",
             Source::Direct => "direct",
-            Source::Custom(s) => s,
+            Source::Unknown(s) => s,
         }
     }
 }
 
-/// UTM parameters structure
-#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+/// UTM Parameters
+#[derive(Debug, Clone, Default)]
 pub struct UtmParams {
-    /// utm_source - the referrer (e.g., google, newsletter)
-    pub utm_source: Option<String>,
-    /// utm_medium - marketing medium (e.g., cpc, banner, email)
-    pub utm_medium: Option<String>,
-    /// utm_campaign - campaign name
-    pub utm_campaign: Option<String>,
-    /// utm_term - paid search keyword
-    pub utm_term: Option<String>,
-    /// utm_content - ad content to differentiate ads
-    pub utm_content: Option<String>,
-    /// Original referrer URL
-    pub referrer: Option<String>,
-    /// Detected platform (for click IDs)
-    pub platform: Option<Source>,
-    /// Original non-standard parameter name
-    pub raw_param: Option<String>,
+    /// Traffic source (utm_source)
+    pub source: Option<Source>,
+    /// Traffic medium (utm_medium)
+    pub medium: Option<String>,
+    /// Campaign name (utm_campaign)
+    pub campaign: Option<String>,
+    /// Campaign term (utm_term)
+    pub term: Option<String>,
+    /// Campaign content (utm_content)
+    pub content: Option<String>,
+    /// Original click ID parameter
+    pub click_id: Option<(String, String)>,
+    /// All query parameters
+    pub raw_params: Vec<(String, String)>,
 }
 
 impl UtmParams {
-    /// Create a new empty UtmParams
+    /// Create new empty params
     pub fn new() -> Self {
         Self::default()
     }
 
     /// Check if any UTM parameters are present
-    pub fn is_empty(&self) -> bool {
-        self.utm_source.is_none()
-            && self.utm_medium.is_none()
-            && self.utm_campaign.is_none()
-            && self.utm_term.is_none()
-            && self.utm_content.is_none()
+    pub fn has_utm(&self) -> bool {
+        self.source.is_some()
+            || self.medium.is_some()
+            || self.campaign.is_some()
+            || self.term.is_some()
+            || self.content.is_some()
     }
 
-    /// Convert to JSON string
-    pub fn to_json(&self) -> alloc::string::String {
-        serde_json::to_string(self).unwrap_or_default()
+    /// Get source as string
+    pub fn source_str(&self) -> &str {
+        match &self.source {
+            Some(s) => s.as_str(),
+            None => "",
+        }
     }
-}
 
-#[cfg(feature = "std")]
-impl core::fmt::Display for UtmParams {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "UtmParams {{ ")?;
-        if let Some(ref source) = self.utm_source {
-            write!(f, "utm_source: {}, ", source)?;
+    /// Format as string for storage/transmission
+    pub fn to_string(&self) -> String {
+        let mut parts = Vec::new();
+        if let Some(ref s) = self.source {
+            parts.push(format!("source={}", s.as_str()));
         }
-        if let Some(ref medium) = self.utm_medium {
-            write!(f, "utm_medium: {}, ", medium)?;
+        if let Some(ref m) = self.medium {
+            parts.push(format!("medium={}", m));
         }
-        if let Some(ref campaign) = self.utm_campaign {
-            write!(f, "utm_campaign: {}, ", campaign)?;
+        if let Some(ref c) = self.campaign {
+            parts.push(format!("campaign={}", c));
         }
-        write!(f, "}}")
+        if let Some(ref t) = self.term {
+            parts.push(format!("term={}", t));
+        }
+        if let Some(ref c) = self.content {
+            parts.push(format!("content={}", c));
+        }
+        parts.join("|")
     }
 }

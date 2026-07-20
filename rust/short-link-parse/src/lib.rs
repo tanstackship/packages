@@ -1,79 +1,140 @@
-//! # short-link-parse
-//!
-//! URL fingerprinting and short link deduplication library.
-//!
-//! Generate consistent fingerprints for URLs to detect duplicates and enable
-//! short link deduplication.
-//!
-//! ## Features
-//!
-//! - 🔗 URL normalization and fingerprinting
-//! - 🎯 Deterministic slug generation
-//! - 📊 Deduplication support
-//! - 🌐 Works with UTM parameters
-//!
-//! ## Quick Start
-//!
-//! ```rust
-//! use short_link_parse::{UrlFingerprint, build_fingerprint};
-//!
-//! let url = "https://example.com/page?utm_source=google&fbclid=abc";
-//! let fp = build_fingerprint(url).unwrap();
-//!
-//! assert_eq!(fp.host, "example.com");
-//! ```
-//!
-//! ## License
-//!
-//! MIT
-
-#![deny(missing_docs)]
-#![forbid(unsafe_code)]
+//! TanStack Ship Short Link Parse
+//! Parse short links and extract tracking information
 
 mod error;
 mod fingerprint;
 
-pub use error::ShortLinkError;
-pub use fingerprint::{UrlFingerprint, build_fingerprint, fnv_hash, generate_slug};
+use error::{Error, Result};
+use fingerprint::{build_fingerprint, UrlFingerprint};
 
-/// Generate a random slug
-/// 
-/// Generates a URL-safe slug of specified length.
-/// 
-/// # Arguments
-/// 
-/// * `length` - The length of the slug to generate
+pub use error::{Error, Result};
+pub use fingerprint::UrlFingerprint;
+
+/// Short link info
+#[derive(Debug, Clone)]
+pub struct ShortLinkInfo {
+    /// The short code/slug
+    pub code: String,
+    /// Full destination URL if known
+    pub destination: Option<String>,
+    /// Fingerprint for deduplication
+    pub fingerprint: Option<UrlFingerprint>,
+    /// Platform info
+    pub platform: Option<String>,
+    /// Whether this is a known shortener
+    pub shortener: Option<String>,
+}
+
+impl ShortLinkInfo {
+    /// Get fingerprint string
+    pub fn fingerprint_str(&self) -> Option<String> {
+        self.fingerprint.map(|f| build_fingerprint(&f))
+    }
+}
+
+/// Parse a short link URL
 /// 
 /// # Example
 /// 
-/// ```rust
-/// let slug = generate_slug(8);
-/// assert_eq!(slug.len(), 8);
-/// assert!(slug.chars().all(|c| c.is_ascii_lowercase()));
 /// ```
-pub fn generate_slug(length: usize) -> String {
-    use std::iter::repeat;
-    
-    const CHARS: &[u8] = b"abcdefghijklmnopqrstuvwxyz0123456789";
-    let range = repeat(0u8..CHARS.len())
-        .take(length)
-        .flat_map(|range| range)
-        .take(length);
-    
-    range.map(|i| CHARS[i] as char).collect()
+/// use tanstack_short_link_parse::parse_short_link;
+/// 
+/// let info = parse_short_link("https://t.co/abc123");
+/// assert!(info.shortener.is_some());
+/// ```
+pub fn parse_short_link(url: &str) -> ShortLinkInfo {
+    let mut info = ShortLinkInfo {
+        code: String::new(),
+        destination: None,
+        fingerprint: None,
+        platform: None,
+        shortener: None,
+    };
+
+    // Known shorteners
+    let shorteners = [
+        ("t.co", "twitter"),
+        ("bit.ly", "bitly"),
+        ("goo.gl", "google"),
+        ("tinyurl.com", "tinyurl"),
+        ("ow.ly", "hootsuite"),
+        ("buff.ly", "buffer"),
+        ("adf.ly", "adfly"),
+        ("bit.do", "bitdo"),
+        ("mcaf.ee", "mcafee"),
+        ("cli.gs", "cligs"),
+    ];
+
+    // Check if URL matches a known shortener
+    for (domain, name) in shorteners.iter() {
+        if url.contains(domain) {
+            info.shortener = Some(name.to_string());
+            // Extract code
+            if let Some(code) = extract_code(url) {
+                info.code = code;
+            }
+            break;
+        }
+    }
+
+    // Build fingerprint for deduplication
+    if let Some(fingerprint) = build_url_fingerprint(url) {
+        info.fingerprint = Some(fingerprint);
+    }
+
+    info
 }
 
-/// Validate URL length
-pub fn validate_url_length(url: &str) -> Result<(), ShortLinkError> {
-    const MAX_URL_LENGTH: usize = 8192;
-    
-    if url.is_empty() {
-        return Err(ShortLinkError::EmptyUrl);
+/// Extract code from URL
+fn extract_code(url: &str) -> Option<String> {
+    // Try to find path segments
+    if let Some(path_start) = url.find("://") {
+        let after_host = &url[path_start + 3..];
+        if let Some(path_start) = after_host.find('/') {
+            let path = &after_host[path_start + 1..];
+            // Get first segment
+            if let Some(path_end) = path.find('/') {
+                return Some(path[..path_end].to_string());
+            } else if !path.is_empty() && !path.contains('?') {
+                return Some(path.split('?').next().unwrap_or(path).to_string());
+            }
+        }
     }
-    if url.len() > MAX_URL_LENGTH {
-        return Err(ShortLinkError::UrlTooLong);
+    None
+}
+
+/// Build fingerprint from URL
+fn build_url_fingerprint(url: &str) -> Option<UrlFingerprint> {
+    let mut fp = UrlFingerprint {
+        host: String::new(),
+        path: String::new(),
+        utm_source: None,
+        utm_medium: None,
+        utm_campaign: None,
+    };
+
+    // Parse URL manually
+    if let Some(host_start) = url.find("://") {
+        let after_scheme = &url[host_start + 3..];
+        let (host, path_with_query) = if let Some(path_pos) = after_scheme.find('/') {
+            (&after_scheme[..path_pos], Some(&after_scheme[path_pos..]))
+        } else {
+            (after_host, None)
+        };
+        
+        fp.host = host.to_string();
+        
+        if let Some(pq) = path_with_query {
+            // Remove query string for fingerprint
+            if let Some(path_end) = pq.find('?') {
+                fp.path = pq[..path_end].to_string();
+            } else {
+                fp.path = pq.to_string();
+            }
+        }
     }
-    Ok(())
+
+    Some(fp)
 }
 
 #[cfg(test)]
@@ -81,38 +142,15 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_empty_url() {
-        assert!(validate_url_length("").is_err());
+    fn test_twitter_short_link() {
+        let info = parse_short_link("https://t.co/abc123xyz");
+        assert_eq!(info.shortener, Some("twitter".to_string()));
+        assert_eq!(info.code, "abc123xyz");
     }
 
     #[test]
-    fn test_url_too_long() {
-        let long_url = "https://example.com/".repeat(1000);
-        assert!(validate_url_length(&long_url).is_err());
-    }
-
-    #[test]
-    fn test_fingerprint_consistency() {
-        let url1 = "https://example.com/page?fbclid=abc&gclid=xyz";
-        let url2 = "https://example.com/page?gclid=xyz&fbclid=abc";
-
-        let fp1 = build_fingerprint(url1).unwrap();
-        let fp2 = build_fingerprint(url2).unwrap();
-
-        // Should be the same regardless of param order
-        assert_eq!(fp1.utm_params, fp2.utm_params);
-    }
-
-    #[test]
-    fn test_generate_slug() {
-        let slug = generate_slug(6);
-        assert_eq!(slug.len(), 6);
-        assert!(slug.chars().all(|c| c.is_ascii_lowercase() || c.is_ascii_digit()));
-    }
-
-    #[test]
-    fn test_generate_slug_length() {
-        assert_eq!(generate_slug(8).len(), 8);
-        assert_eq!(generate_slug(12).len(), 12);
+    fn test_bitly_short_link() {
+        let info = parse_short_link("https://bit.ly/3abc123");
+        assert_eq!(info.shortener, Some("bitly".to_string()));
     }
 }
