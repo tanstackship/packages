@@ -1,42 +1,54 @@
-# UTM Tracking Worker Docker Image
+# TanStack Ship Docker - UTM Worker
 
-> Dockerized Cloudflare Workers UTM tracking function
+> Docker image for running UTM tracking worker at scale.
+
+[![Docker](https://img.shields.io/badge/Docker-tanstackship.com-blue)](https://tanstackship.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## 🌐 Links
+
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/docker](https://tanstackship.com/docs)
+- **Docker Hub**: [https://hub.docker.com/r/tanstackship/utm-worker](https://hub.docker.com)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
+
+## Installation
+
+```bash
+docker pull tanstackship/utm-worker:latest
+```
 
 ## Quick Start
 
 ```bash
-# Pull from GitHub Container Registry
-docker pull ghcr.io/tanstackship/utm-worker:latest
-
-# Run locally
 docker run -p 8787:8787 \
-  -e SITE_URL=https://tanstackship.com \
-  ghcr.io/tanstackship/utm-worker:latest
+  -e KV_REST_API_URL=https://api.cloudflare.com/client/v4/accounts/xxx/storage/kv/namespaces/xxx \
+  -e KV_REST_API_TOKEN=xxx \
+  tanstackship/utm-worker:latest
 ```
 
 ## Environment Variables
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `SITE_URL` | Your site URL | Yes |
-| `KV_ID` | Cloudflare KV namespace ID | No (local dev) |
+| Variable | Description |
+|----------|-------------|
+| `PORT` | Server port (default: 8787) |
+| `KV_REST_API_URL` | Cloudflare KV REST API URL |
+| `KV_REST_API_TOKEN` | Cloudflare KV API token |
+| `POSTHOG_API_KEY` | PostHog API key (optional) |
 
-## Usage
+## Docker Compose
 
-```bash
-# Build locally
-docker build -t utm-worker .
-
-# Run with wrangler
-docker run -p 8787:8787 utm-worker
+```yaml
+version: '3.8'
+services:
+  utm-worker:
+    image: tanstackship/utm-worker:latest
+    ports:
+      - "8787:8787"
+    environment:
+      - KV_REST_API_URL=${KV_REST_API_URL}
+      - KV_REST_API_TOKEN=${KV_REST_API_TOKEN}
 ```
-
-## Endpoints
-
-| Path | Method | Description |
-|------|--------|-------------|
-| `/` | GET | Health check |
-| `/?utm_source=google` | GET | Capture UTM params |
 
 ## License
 

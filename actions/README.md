@@ -1,33 +1,27 @@
 # GitHub Actions
 
-> TanStack Ship 相关的工作流 Action
+> GitHub Actions for TanStack Ship infrastructure.
 
-## 📦 Actions 列表
+## 🌐 Links
 
-| Action | 描述 | 状态 |
-|--------|------|------|
-| `utm-capture-action` | 捕获 UTM 参数到输出 | 🔄 开发中 |
-| `short-link-action` | 短链接生成 | 📋 计划 |
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/actions](https://tanstackship.com/docs)
+- **GitHub Marketplace**: [https://github.com/marketplace](https://github.com/marketplace)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
-## 🔗 外链价值
+## Actions
 
-| 平台 | DR | 外链位置 |
-|------|-----|----------|
-| github.com | 96 | Action 市场 |
-| actions.github.com | 89 | Action 页面 |
+| Action | Description |
+|--------|-------------|
+| `utm-capture-action` | Capture UTM from commits |
 
-## 📁 结构
+## Usage
 
-```
-actions/
-├── utm-capture-action/
-│   ├── action.yml
-│   ├── index.js
-│   └── README.md
-└── short-link-action/
-    └── ...
+```yaml
+- name: Capture UTM
+  uses: tanstackship/utm-capture-action@v1
 ```
 
-## 🚀 发布
+## License
 
-发布后会自动出现在 GitHub Marketplace。
+MIT © [Huifer](https://tanstackship.com/about)

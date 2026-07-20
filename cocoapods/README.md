@@ -1,16 +1,26 @@
-# CocoaPods (iOS/macOS)
+# CocoaPods
 
-> iOS/macOS packages for TanStack Ship ecosystem
+> TanStack Ship iOS/macOS packages via CocoaPods.
 
-## 📦 Packages
+## 🌐 Links
 
-| Pod | CocoaPods | Description |
-|-----|-----------|-------------|
-| `UtmParse` | 📋 Plan | UTM parameter parsing library |
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/ios](https://tanstackship.com/docs)
+- **CocoaPods**: [https://cocoapods.org/tanstackship](https://cocoapods.org)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
-## 🔗 外链价值
+## Packages
 
-| Platform | DR |
-|----------|-----|
-| cocoapods.org | 82 |
-| trunkmaster.io | 70 |
+| Pod | Description |
+|-----|-------------|
+| `UtmParse` | UTM parameter parsing |
+
+## Installation
+
+```ruby
+pod 'UtmParse', :git => 'https://github.com/tanstackship/packages.git'
+```
+
+## License
+
+MIT © [Huifer](https://tanstackship.com/about)

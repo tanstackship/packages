@@ -2,13 +2,23 @@
 
 > Email campaign management. Send transactional and marketing emails.
 
+[![npm](https://img.shields.io/badge/npm-tanstackship.com-red)](https://www.npmjs.com/org/tanstackship)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## 🌐 Links
+
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/campaigns](https://tanstackship.com/docs)
+- **npm**: [https://www.npmjs.com/package/@tanstackship/campaigns](https://www.npmjs.com/package/@tanstackship/campaigns)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
+
 ## Features
 
-- 📧 **Email templates** - Create and manage email templates
-- 🎯 **Segmentation** - Send to specific user segments
-- 📊 **Analytics** - Track opens, clicks, bounces
-- ⏰ **Scheduling** - Schedule emails for later
-- 🔄 **Automation** - Trigger emails based on events
+- 📧 Email templates
+- 🎯 Segmentation
+- 📊 Analytics
+- ⏰ Scheduling
+- 🔄 Automation
 
 ## Installation
 
@@ -23,18 +33,10 @@ import { createCampaignSystem } from '@tanstackship/campaigns'
 
 const campaigns = createCampaignSystem()
 
-// Create a campaign
 const campaign = await campaigns.createCampaign({
   name: 'Welcome Series',
   subject: 'Welcome to TanStack Ship!',
   template: 'welcome-email',
-  segment: 'new_users',
-})
-
-// Send to segment
-await campaigns.sendToSegment({
-  campaignId: campaign.id,
-  segment: 'new_users',
 })
 ```
 

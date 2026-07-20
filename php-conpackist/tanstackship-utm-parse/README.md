@@ -1,6 +1,16 @@
-# tanstackship/utm-parse
+# tanstackship/utm-parse (PHP)
 
-> Fast UTM parameter parsing library for PHP
+> UTM parameter parsing for PHP.
+
+[![Packagist](https://img.shields.io/badge/Packagist-tanstackship.com-purple)](https://packagist.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## 🌐 Links
+
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/php](https://tanstackship.com/docs)
+- **Packagist**: [https://packagist.org/packages/tanstackship/utm-parse](https://packagist.org)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
 ## Installation
 
@@ -8,33 +18,15 @@
 composer require tanstackship/utm-parse
 ```
 
-## Usage
+## Quick Start
 
 ```php
-use TanStackShip\UtmParse\UtmParser;
+<?php
+use TanstackShip\UtmParser;
 
-$params = UtmParser::parse("https://example.com?utm_source=google&utm_campaign=spring");
-
-echo $params->source;   // "google"
-echo $params->campaign; // "spring"
-print_r($params->toArray());
+$params = UtmParser::parse("https://example.com?utm_source=google");
+echo $params->source; // google
 ```
-
-## Platform Click ID Detection
-
-Automatically detects:
-
-| Platform | Click ID |
-|----------|----------|
-| Google | `gclid` |
-| Facebook | `fbclid` |
-| Bing | `msclkid` |
-| TikTok | `ttclid` |
-| LinkedIn | `li_fat_id` |
-
-## Requirements
-
-- PHP 8.0+
 
 ## License
 

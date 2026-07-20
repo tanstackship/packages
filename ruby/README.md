@@ -1,16 +1,26 @@
-# Ruby / RubyGems Packages
+# Ruby Gems
 
-> Ruby gems for TanStack Ship ecosystem
+> TanStack Ship Ruby gems.
 
-## 📦 Packages
+## 🌐 Links
 
-| Package | RubyGems | Description |
-|---------|----------|-------------|
-| `utm_parse` | 📋 Plan | UTM parameter parsing library |
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/ruby](https://tanstackship.com/docs)
+- **RubyGems**: [https://rubygems.org/tanstackship](https://rubygems.org)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
-## 🔗 外链价值
+## Packages
 
-| Platform | DR |
-|----------|-----|
-| rubygems.org | 91 |
-| bundler.io | 70 |
+| Gem | Description |
+|-----|-------------|
+| `tanstack_utm_parse` | UTM parameter parsing |
+
+## Installation
+
+```bash
+gem install tanstack_utm_parse
+```
+
+## License
+
+MIT © [Huifer](https://tanstackship.com/about)

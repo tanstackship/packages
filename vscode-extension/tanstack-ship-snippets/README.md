@@ -2,20 +2,34 @@
 
 > VS Code code snippets for TanStack Ship SaaS boilerplate
 
+[![VS Code](https://img.shields.io/badge/VS%20Code-tanstackship.com-blue)](https://tanstackship.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## 🌐 Links
+
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/vscode](https://tanstackship.com/docs)
+- **VS Code Marketplace**: [https://marketplace.visualstudio.com](https://marketplace.visualstudio.com)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
+
 ## Features
 
-- ⚡ Quick UTM capture hooks
+Snippets for TanStack Ship packages:
+
+- ⚡ UTM tracking
 - 🔧 TanStack Start server functions
 - 🛣️ TanStack Router routes
-- 💳 Stripe checkout helpers
-- 🌍 i18n utilities
+- 📊 TanStack Query hooks
+- 💳 Stripe checkout
+- 🎁 Referral system
+- 💰 Credits system
+- 📈 Analytics
 
 ## Installation
 
-1. Open VS Code
-2. Press `Ctrl+P` / `Cmd+P`
-3. Type `ext install tanstackship.tanstack-ship-snippets`
-4. Restart VS Code
+```bash
+code --install-extension tanstackship.tanstack-ship-snippets
+```
 
 ## Snippets
 
@@ -23,8 +37,9 @@
 |---------|-------------|
 | `utm-capture` | UTM capture hook |
 | `ts-serverfn` | TanStack Start server function |
-| `ts-route` | TanStack Router file route |
-| `stripe-checkout` | Stripe checkout session |
+| `track` | Analytics track event |
+| `referral` | Referral system |
+| `credits` | Credits system |
 
 ## License
 

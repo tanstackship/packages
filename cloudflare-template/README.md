@@ -1,36 +1,25 @@
-# Cloudflare Workers Templates
+# Cloudflare Templates
 
-> TanStack Ship 相关的 Cloudflare Workers 模板
+> TanStack Ship templates for Cloudflare Workers and Pages.
 
-## 📦 模板列表
+## 🌐 Links
 
-| 模板 | 描述 | 状态 |
-|------|------|------|
-| `tanstackship-utm-worker` | UTM 追踪 Worker | 🔄 开发中 |
-| `tanstackship-short-link` | 短链接服务 | 📋 计划 |
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/cloudflare](https://tanstackship.com/docs)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
-## 🔗 外链价值
+## Templates
 
-| 平台 | DR | 外链位置 |
-|------|-----|----------|
-| developers.cloudflare.com | 90 | 模板市场 |
-| workers.cloudflare.com | 85 | Workers.new |
+| Template | Description |
+|----------|-------------|
+| `tanstackship-utm-worker` | UTM tracking edge worker |
 
-## 🚀 发布到 Workers.new
+## Installation
 
-1. Fork 模板仓库
-2. 在 `workers.cloudflare.com/workspaces/templates` 提交
-3. 或提交 PR 到 Cloudflare 官方模板
-
-## 📁 结构
-
+```bash
+wrangler generate tanstackship-utm-worker https://github.com/tanstackship/packages/cloudflare-template/tanstackship-utm-worker
 ```
-cloudflare-template/
-├── utm-worker/
-│   ├── wrangler.toml
-│   ├── src/
-│   │   └── index.ts
-│   └── package.json
-└── short-link/
-    └── ...
-```
+
+## License
+
+MIT © [Huifer](https://tanstackship.com/about)

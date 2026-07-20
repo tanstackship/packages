@@ -1,6 +1,19 @@
-# UtmParse
+# Swift Packages (SPM)
 
-> Fast UTM parameter parsing library for Swift
+> TanStack Ship Swift packages.
+
+## 🌐 Links
+
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/swift](https://tanstackship.com/docs)
+- **Swift Package Registry**: [https://swiftpackageindex.com/tanstackship](https://swiftpackageindex.com)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
+
+## Packages
+
+| Package | Description |
+|---------|-------------|
+| `UtmParse` | UTM parameter parsing |
 
 ## Installation
 
@@ -8,32 +21,9 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/orgs/tanstackship", from: "0.1.0")
+    .package(url: "https://github.com/tanstackship/packages", from: "1.0.0")
 ]
 ```
-
-## Usage
-
-```swift
-import UtmParse
-
-let params = UtmParser.parse("https://example.com?utm_source=google&utm_campaign=spring")
-
-print(params.source)   // "google"
-print(params.campaign) // "spring"
-```
-
-## Platform Click ID Detection
-
-Automatically detects:
-
-| Platform | Click ID |
-|----------|----------|
-| Google | `gclid` |
-| Facebook | `fbclid` |
-| Bing | `msclkid` |
-| TikTok | `ttclid` |
-| LinkedIn | `li_fat_id` |
 
 ## License
 

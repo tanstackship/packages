@@ -1,13 +1,16 @@
-# UTM MCP Server
+# @tanstackship/utm-mcp-server
 
-> Model Context Protocol server for UTM parsing - enables AI agents to parse and analyze UTM parameters
+> MCP server for UTM parsing and analytics. Use with Claude Desktop, Cursor, and other MCP-compatible AI tools.
 
-## Features
+[![MCP](https://img.shields.io/badge/MCP-tanstackship.com-purple)](https://tanstackship.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- 🔗 Parse UTM parameters from URLs
-- 📊 Analyze marketing attribution
-- 🔍 Detect platform click IDs
-- 📈 Generate attribution reports
+## 🌐 Links
+
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/mcp](https://tanstackship.com/docs)
+- **npm**: [https://www.npmjs.com/package/@tanstackship/utm-mcp-server](https://www.npmjs.com/package/@tanstackship/utm-mcp-server)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
 ## Installation
 
@@ -15,16 +18,16 @@
 npm install -g @tanstackship/utm-mcp-server
 ```
 
-## Configuration
+## Claude Desktop Configuration
 
-Add to your MCP configuration (e.g., Claude Desktop):
+Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 
 ```json
 {
   "mcpServers": {
-    "utm": {
-      "command": "npx",
-      "args": ["-y", "@tanstackship/utm-mcp-server"]
+    "tanstackship-utm": {
+      "command": "node",
+      "args": ["/path/to/@tanstackship/utm-mcp-server/dist/index.js"]
     }
   }
 }
@@ -32,42 +35,12 @@ Add to your MCP configuration (e.g., Claude Desktop):
 
 ## Tools
 
-### parse_utm
-
-Parse UTM parameters from a URL.
-
-```typescript
-{
-  name: 'parse_utm',
-  description: 'Parse UTM parameters from a URL string',
-  inputSchema: {
-    type: 'object',
-    properties: {
-      url: { type: 'string', description: 'URL to parse' }
-    },
-    required: ['url']
-  }
-}
-```
-
-### analyze_attribution
-
-Analyze marketing attribution from UTM data.
-
-```typescript
-{
-  name: 'analyze_attribution',
-  description: 'Analyze marketing attribution from UTM data',
-  inputSchema: {
-    type: 'object',
-    properties: {
-      source: { type: 'string' },
-      medium: { type: 'string' },
-      campaign: { type: 'string' }
-    }
-  }
-}
-```
+| Tool | Description |
+|------|-------------|
+| `parse_utm_url` | Parse UTM from URL |
+| `parse_utm_text` | Extract UTM from text |
+| `generate_utm_url` | Create URL with UTM params |
+| `track_attribution` | Track attribution data |
 
 ## License
 

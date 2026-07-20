@@ -1,16 +1,26 @@
-# PHP / Composer Packages
+# PHP Packages (Packagist)
 
-> PHP packages for TanStack Ship ecosystem
+> TanStack Ship PHP packages.
 
-## 📦 Packages
+## 🌐 Links
 
-| Package | Packagist | Description |
-|---------|-----------|-------------|
-| `tanstackship/utm-parse` | 📋 Plan | UTM parameter parsing library |
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/php](https://tanstackship.com/docs)
+- **Packagist**: [https://packagist.org/tanstackship](https://packagist.org)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
-## 🔗 外链价值
+## Packages
 
-| Platform | DR |
-|----------|-----|
-| packagist.org | 90 |
-| php.net | 94 |
+| Package | Description |
+|---------|-------------|
+| `tanstackship/utm-parse` | UTM parameter parsing |
+
+## Installation
+
+```bash
+composer require tanstackship/utm-parse
+```
+
+## License
+
+MIT © [Huifer](https://tanstackship.com/about)

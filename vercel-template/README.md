@@ -1,34 +1,42 @@
-# Vercel Templates
+# TanStack Ship Vercel Template
 
-> TanStack Ship 相关的 Vercel 部署模板
+> Complete Vercel deployment for TanStack Ship SaaS apps.
 
-## 📦 模板列表
+[![Vercel](https://img.shields.io/badge/Vercel-tanstackship.com-black)](https://tanstackship.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-| 模板 | 描述 | 状态 |
-|------|------|------|
-| `tanstack-ship-saas` | 完整 SaaS 模板 | 🔄 开发中 |
+## 🌐 Links
 
-## 🔗 外链价值
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/vercel](https://tanstackship.com/docs)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
-| 平台 | DR | 外链位置 |
-|------|-----|----------|
-| vercel.com | 93 | 模板页面 |
-| github.com | 96 | 源码仓库 |
+## Features
 
-## 🚀 发布到 Vercel
+- ⚡ Edge Functions
+- 📊 Analytics integration
+- 🔗 Short Links API
+- 🏷️ UTM Capture middleware
+- 🚀 Edge Config
 
-1. 在 Vercel Dashboard 创建新 Project
-2. Import 从 GitHub
-3. 填写配置后 Deploy
-4. 在 Vercel Template Gallery 提交
+## Quick Start
 
-## 📁 结构
+```bash
+# Clone template
+npx create-vercel-app@latest --template tanstackship/vercel-template
+
+# Deploy
+vercel
+```
+
+## API Routes
 
 ```
-vercel-template/
-└── tanstack-ship-saas/
-    ├── vercel.json
-    ├── api/
-    ├── app/
-    └── package.json
+/api/track      - Analytics tracking
+/api/short-link - URL shortener
+/api/utm/*      - UTM capture
 ```
+
+## License
+
+MIT © [Huifer](https://tanstackship.com/about)

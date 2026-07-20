@@ -1,17 +1,20 @@
-# WordPress Plugin
+# WordPress Plugins
 
-> WordPress plugins for TanStack Ship ecosystem
+> TanStack Ship WordPress plugins.
 
-## 📦 Plugins
+## 🌐 Links
 
-| Plugin | WordPress.org | Description |
-|--------|---------------|-------------|
-| UTM Tracker | 📋 Plan | Track UTM parameters in WordPress |
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/wordpress](https://tanstackship.com/docs)
+- **WordPress**: [https://wordpress.org/plugins/tanstackship](https://wordpress.org)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
-## 🔗 外链价值
+## Plugins
 
-| Platform | DR |
-|----------|-----|
-| wordpress.org | 95 |
-| wpmudev.org | 60 |
-</parameter>
+| Plugin | Description |
+|--------|-------------|
+| `tanstack-utm-tracker` | UTM tracking for WordPress |
+
+## License
+
+MIT © [Huifer](https://tanstackship.com/about)

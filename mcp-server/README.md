@@ -1,18 +1,25 @@
 # MCP Servers
 
-> Model Context Protocol servers for AI integrations
+> Model Context Protocol servers for AI tools.
 
-## 📦 Servers
+## 🌐 Links
+
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/mcp](https://tanstackship.com/docs)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
+
+## Servers
 
 | Server | Description |
 |--------|-------------|
-| `utm-mcp-server` | UTM parsing MCP server for AI agents |
+| `@tanstackship/utm-mcp-server` | UTM parsing for Claude, Cursor, etc. |
 
-## 🔗 外链价值
+## Installation
 
-| Platform | DR |
-|----------|-----|
-| modelcontextprotocol.io | 55 |
-| glama.ai (MCP) | 50 |
-| aptracker.ai | 45 |
-</parameter>
+```bash
+npm install -g @tanstackship/utm-mcp-server
+```
+
+## License
+
+MIT © [Huifer](https://tanstackship.com/about)

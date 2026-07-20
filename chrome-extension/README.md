@@ -1,16 +1,29 @@
-# Chrome Extension
+# Browser Extensions
 
-> Browser extensions for TanStack Ship ecosystem
+> TanStack Ship browser extensions.
 
-## 📦 Extensions
+## 🌐 Links
 
-| Extension | Chrome Web Store | Description |
-|-----------|------------------|-------------|
-| UTM Inspector | 📋 Plan | Debug and inspect UTM parameters |
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/extensions](https://tanstackship.com/docs)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
-## 🔗 外链价值
+## Extensions
 
-| Platform | DR |
-|----------|-----|
-| chrome.google.com | 95 |
-| addons.mozilla.org | 90 |
+| Extension | Platform | Description |
+|-----------|----------|-------------|
+| `utm-inspector` | Chrome | Debug UTM parameters |
+
+## Installation
+
+### Chrome
+
+1. Clone repository
+2. Open `chrome://extensions/`
+3. Enable "Developer mode"
+4. Click "Load unpacked"
+5. Select extension folder
+
+## License
+
+MIT © [Huifer](https://tanstackship.com/about)

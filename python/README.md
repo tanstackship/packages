@@ -1,64 +1,26 @@
 # Python Packages
 
-> Python 包集合，与 TanStack Ship 生态相关
+> TanStack Ship Python packages.
 
-## 📦 包列表
+## 🌐 Links
 
-| 包名 | PyPI | 描述 | 状态 |
-|------|------|------|------|
-| `utm-parse` | ✅ | UTM 解析库 | 🔄 开发中 |
-| `short-link-parse` | 📋 | 短链接解析 | 📋 计划 |
-| `stripe-webhook` | 📋 | Stripe Webhook 处理 | 📋 计划 |
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/python](https://tanstackship.com/docs)
+- **PyPI**: [https://pypi.org/tanstackship](https://pypi.org)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
-## 🚀 发布到 PyPI
+## Packages
 
-### 方式 1: 直接发布
+| Package | Description |
+|---------|-------------|
+| `tanstack-utm-parse` | UTM parameter parsing |
 
-```bash
-cd python/utm-parse
-pip install build twine
-
-# 构建
-python -m build
-
-# 发布
-twine upload dist/*
-```
-
-### 方式 2: GitHub Actions
-
-使用 `.github/workflows/python-publish.yml`
-
-## 🔗 外链价值
-
-| 平台 | DR | 外链位置 |
-|------|-----|----------|
-| pypi.org | 92 | 包页面 |
-| pyranks.com | 45 | 排名 |
-| libraries.io | 58 | 依赖追踪 |
-
-## 📁 包结构
-
-```
-python/
-├── utm-parse/
-│   ├── pyproject.toml
-│   ├── src/
-│   │   └── utm_parse/
-│   │       ├── __init__.py
-│   │       └── parser.py
-│   └── README.md
-└── short-link-parse/
-    └── ...
-```
-
-## 🔧 开发
+## Installation
 
 ```bash
-# 本地安装开发
-cd python/utm-parse
-pip install -e .
-
-# 测试
-pytest
+pip install tanstack-utm-parse
 ```
+
+## License
+
+MIT © [Huifer](https://tanstackship.com/about)

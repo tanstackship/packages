@@ -1,43 +1,31 @@
-# utm_parse
+# tanstack_utm_parse (Ruby)
 
-> Fast UTM parameter parsing library for Ruby
+> UTM parameter parsing for Ruby.
+
+[![RubyGems](https://img.shields.io/badge/RubyGems-tanstackship.com-red)](https://rubygems.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## 🌐 Links
+
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/ruby](https://tanstackship.com/docs)
+- **RubyGems**: [https://rubygems.org/gems/tanstack_utm_parse](https://rubygems.org)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
 ## Installation
 
 ```bash
-gem install utm_parse
+gem install tanstack_utm_parse
 ```
 
-Or add to Gemfile:
+## Quick Start
 
 ```ruby
-gem 'utm_parse', '~> 0.1'
+require 'tanstack_utm_parse'
+
+params = TanstackUtmParse.parse_url("https://example.com?utm_source=google")
+puts params[:source] # google
 ```
-
-## Usage
-
-```ruby
-require 'utm_parse'
-
-params = UtmParse.parse("https://example.com?utm_source=google&utm_campaign=spring")
-
-puts params.source   # "google"
-puts params.campaign # "spring"
-puts params.to_h
-# {:source=>"google", :campaign=>"spring"}
-```
-
-## Platform Click ID Detection
-
-Automatically detects:
-
-| Platform | Click ID |
-|----------|----------|
-| Google | `gclid` |
-| Facebook | `fbclid` |
-| Bing | `msclkid` |
-| TikTok | `ttclid` |
-| LinkedIn | `li_fat_id` |
 
 ## License
 

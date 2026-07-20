@@ -1,30 +1,26 @@
 # VS Code Extensions
 
-> TanStack 相关的 VS Code 扩展
+> VS Code extensions for TanStack Ship.
 
-## 📦 扩展列表
+## 🌐 Links
 
-| 扩展 | 描述 | 状态 |
-|------|------|------|
-| `tanstack-ship-snippets` | TanStack Ship 代码片段 | 🔄 开发中 |
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/vscode](https://tanstackship.com/docs)
+- **VS Code Marketplace**: [https://marketplace.visualstudio.com](https://marketplace.visualstudio.com)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
-## 🔗 外链价值
+## Extensions
 
-| 平台 | DR | 外链位置 |
-|------|-----|----------|
-| marketplace.visualstudio.com | 90 | 扩展页面 |
-| open-vsx.org | 55 | 开源扩展市场 |
+| Extension | Description |
+|-----------|-------------|
+| `tanstack-ship-snippets` | Code snippets for TanStack Ship packages |
 
-## 📁 结构
+## Installation
 
-```
-vscode-extension/
-└── tanstack-ship-snippets/
-    ├── extension.yml
-    ├── package.json
-    └── snippets/
+```bash
+code --install-extension tanstackship.tanstack-ship-snippets
 ```
 
-## 🚀 发布
+## License
 
-发布到 VS Code Marketplace 后即可自动安装。
+MIT © [Huifer](https://tanstackship.com/about)

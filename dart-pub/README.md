@@ -1,16 +1,27 @@
-# Dart / Pub Packages
+# Dart/Flutter Packages (pub.dev)
 
-> Dart packages for TanStack Ship ecosystem
+> TanStack Ship Dart and Flutter packages.
 
-## 📦 Packages
+## 🌐 Links
 
-| Package | pub.dev | Description |
-|---------|----------|-------------|
-| `utm_parse` | 📋 Plan | UTM parameter parsing library |
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/dart](https://tanstackship.com/docs)
+- **pub.dev**: [https://pub.dev/tanstackship](https://pub.dev)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
-## 🔗 外链价值
+## Packages
 
-| Platform | DR |
-|----------|-----|
-| pub.dev | 82 |
-| dart.dev | 80 |
+| Package | Description |
+|---------|-------------|
+| `utm_parse` | UTM parameter parsing |
+
+## Installation
+
+```yaml
+dependencies:
+  utm_parse: ^1.0.0
+```
+
+## License
+
+MIT © [Huifer](https://tanstackship.com/about)

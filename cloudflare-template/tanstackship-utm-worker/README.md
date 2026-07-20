@@ -1,37 +1,42 @@
-# TanStack Ship UTM Worker
+# TanStack Ship Cloudflare Worker - UTM Tracking
 
-> Cloudflare Workers template for UTM parameter tracking
+> Edge worker for UTM tracking on Cloudflare Workers.
 
-## Features
+[![Cloudflare](https://img.shields.io/badge/Cloudflare-tanstackship.com-orange)](https://tanstackship.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- 🎯 Captures standard UTM parameters
-- 📱 Platform click ID detection (gclid, fbclid, etc.)
-- 💾 KV storage with 30-day expiry
-- 🍪 Cookie persistence for client-side tracking
-- ⚡ Edge-native performance
+## 🌐 Links
 
-## Deploy
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/cloudflare](https://tanstackship.com/docs)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
+
+## Installation
 
 ```bash
-# Clone
-git clone https://github.com/orgs/tanstackship
-cd cloudflare-template/tanstackship-utm-worker
-
-# Configure
-wrangler secret put KV_ID
-
-# Deploy
+wrangler secret put KV_REST_API_TOKEN
 wrangler deploy
 ```
 
-## Usage
+## Quick Start
 
-```bash
-# Your tracking URL
-https://your-worker.workers.dev/?utm_source=google&utm_campaign=spring_sale
+```typescript
+// wrangler.toml
+name = "tanstackship-utm-worker"
+main = "src/index.ts"
 
-# Redirects to your site with UTM cookie set
+[[kv_namespaces]]
+binding = "UTM_KV"
+id = "xxx"
 ```
+
+## API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/track` | POST | Track event |
+| `/api/utm/:code` | GET | Short link redirect |
+| `/api/stats/:code` | GET | Link statistics |
 
 ## License
 

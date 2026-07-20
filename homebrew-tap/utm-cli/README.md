@@ -1,32 +1,31 @@
-# utm-cli
+# utm-cli (Homebrew)
 
-> CLI tool for parsing UTM parameters from URLs
+> Homebrew formula for UTM CLI tool.
+
+[![Homebrew](https://img.shields.io/badge/Homebrew-tanstackship.com-green)](https://tanstackship.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## 🌐 Links
+
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/cli](https://tanstackship.com/docs)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
 ## Installation
 
 ```bash
-# Using Homebrew
-brew install tanstackship/tap/utm-cli
+# Add tap
+brew tap tanstackship/tap
 
-# Download binary
-curl -fsSL https://github.com/tanstackship/homebrew-tap/releases/latest/download/utm-cli-darwin-arm64 -o /usr/local/bin/utm
-chmod +x /usr/local/bin/utm
+# Install
+brew install utm-cli
 ```
 
 ## Usage
 
 ```bash
-utm "https://example.com?utm_source=google&utm_campaign=spring"
-```
-
-Output:
-```
-UTM Parameters:
-  Source:   google
-  Medium:   
-  Campaign: spring
-  Term:     
-  Content:  
+utm "https://example.com?utm_source=google"
+utm "https://example.com?fbclid=abc" --format=json
 ```
 
 ## License

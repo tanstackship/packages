@@ -1,73 +1,31 @@
-# short-link-parse
+# tanstack_short_link_parse
 
-> URL fingerprinting and short link deduplication library written in Rust.
+> Parse short links and extract tracking information.
 
-[![Crates.io](https://img.shields.io/crates/v/short-link-parse)](https://crates.io/crates/short-link-parse)
+[![crates.io](https://img.shields.io/badge/crates.io-tanstackship.com-orange)](https://crates.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Features
+## 🌐 Links
 
-- 🔗 **URL normalization** - consistent fingerprinting
-- 🎯 **Deterministic** - same URL always produces same fingerprint
-- 📊 **Deduplication support** - detect duplicate short links
-- 🚀 **Fast** - O(n) parsing with FNV hash
-- 🌐 **UTM support** - handles UTM parameters
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/rust](https://tanstackship.com/docs)
+- **crates.io**: [https://crates.io/crates/tanstack_short_link_parse](https://crates.io/crates/tanstack_short_link_parse)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
 ## Installation
 
 ```toml
-# Cargo.toml
 [dependencies]
-short-link-parse = "0.1"
+tanstack_short_link_parse = "1.0"
 ```
 
 ## Quick Start
 
 ```rust
-use short_link_parse::{build_fingerprint, generate_slug};
+use tanstack_short_link_parse::{ShortLinkInfo, parse_short_link};
 
-// Create fingerprint from URL
-let url = "https://example.com/page?utm_source=google&fbclid=abc";
-let fp = build_fingerprint(url)?;
-
-println!("Normalized: {}", fp.normalized);
-println!("Host: {}", fp.host);
-println!("Hash: {}", fp.hash.unwrap());
-
-// Generate random slug
-let slug = generate_slug(6); // e.g., "abc123"
-```
-
-## Use Cases
-
-### Short Link Deduplication
-
-```rust
-use short_link_parse::build_fingerprint;
-
-// Same destination, different UTM order = same fingerprint
-let url1 = "https://example.com?fbclid=a&gclid=b&ref=c";
-let url2 = "https://example.com?ref=c&gclid=b&fbclid=a";
-
-let fp1 = build_fingerprint(url1)?;
-let fp2 = build_fingerprint(url2)?;
-
-assert_eq!(fp1.hash, fp2.hash); // Same destination!
-```
-
-### Link Tracking
-
-```rust
-use short_link_parse::{build_fingerprint, UrlFingerprint};
-
-fn track_link(url: &str) -> Result<UrlFingerprint, ShortLinkError> {
-    let fp = build_fingerprint(url)?;
-    
-    // Store fp.hash in database
-    // Later queries can match by hash
-    
-    Ok(fp)
-}
+let info = parse_short_link("https://t.co/abc123");
+println!("Destination: {}", info.destination);
 ```
 
 ## License

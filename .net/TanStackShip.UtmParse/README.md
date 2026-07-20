@@ -1,6 +1,16 @@
-# TanStackShip.UtmParse
+# TanStackShip.UtmParse (.NET)
 
-> Fast UTM parameter parsing library for .NET
+> UTM parameter parsing for .NET.
+
+[![NuGet](https://img.shields.io/badge/NuGet-tanstackship.com-blue)](https://nuget.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## 🌐 Links
+
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/dotnet](https://tanstackship.com/docs)
+- **NuGet**: [https://nuget.org/packages/TanStackShip.UtmParse](https://nuget.org)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
 ## Installation
 
@@ -8,28 +18,14 @@
 dotnet add package TanStackShip.UtmParse
 ```
 
-## Usage
+## Quick Start
 
 ```csharp
-using TanStackShip.UtmParse;
+using TanStackShip.Utm;
 
-var params = UtmParser.Parse("https://example.com?utm_source=google&utm_campaign=spring");
-
-Console.WriteLine(params.Source);   // "google"
-Console.WriteLine(params.Campaign); // "spring"
+var params = UtmParser.Parse("https://example.com?utm_source=google");
+Console.WriteLine(params.Source); // google
 ```
-
-## Platform Click ID Detection
-
-Automatically detects:
-
-| Platform | Click ID |
-|----------|----------|
-| Google | `gclid` |
-| Facebook | `fbclid` |
-| Bing | `msclkid` |
-| TikTok | `ttclid` |
-| LinkedIn | `li_fat_id` |
 
 ## License
 

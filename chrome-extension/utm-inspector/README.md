@@ -1,24 +1,39 @@
-# UTM Inspector Chrome Extension
+# UTM Inspector - Chrome Extension
 
-> Debug and inspect UTM parameters on any webpage
+> Debug and inspect UTM parameters on any webpage.
 
-## Features
+[![Chrome](https://img.shields.io/badge/Chrome-tanstackship.com-blue)](https://tanstackship.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- 🔍 Detects standard UTM parameters
-- 📱 Identifies platform click IDs (gclid, fbclid, etc.)
-- 🔄 Maps non-standard source params
-- 📋 Easy-to-read popup display
+## 🌐 Links
+
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/chrome](https://tanstackship.com/docs)
+- **Chrome Web Store**: [https://chrome.google.com/webstore](https://chrome.google.com/webstore)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
 ## Installation
 
-1. Open Chrome and go to `chrome://extensions/`
-2. Enable "Developer mode"
-3. Click "Load unpacked"
-4. Select the `utm-inspector` folder
+1. Download from Chrome Web Store (coming soon)
+2. Or load unpacked:
+   - Clone repository
+   - Open `chrome://extensions/`
+   - Enable "Developer mode"
+   - Click "Load unpacked"
+   - Select the `utm-inspector` folder
+
+## Features
+
+- 🔍 Inspect UTM parameters in popup
+- 📊 View traffic source breakdown
+- 🍪 See stored cookie values
+- 🚫 Ignore internal traffic
 
 ## Usage
 
-Click the extension icon in any webpage to see detected UTM parameters.
+1. Click extension icon in toolbar
+2. View current page UTM parameters
+3. See source, medium, campaign details
 
 ## License
 

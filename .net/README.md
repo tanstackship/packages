@@ -1,26 +1,26 @@
-# .NET / NuGet Packages
+# .NET Packages
 
-> .NET packages for TanStack Ship ecosystem
+> TanStack Ship .NET packages.
 
-## 📦 Packages
+## 🌐 Links
 
-| Package | NuGet | Description |
-|---------|-------|-------------|
-| `TanStackShip.UtmParse` | 📋 Plan | UTM parameter parsing library |
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/dotnet](https://tanstackship.com/docs)
+- **NuGet**: [https://nuget.org/tanstackship](https://nuget.org)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
-## 🔗 外链价值
+## Packages
 
-| Platform | DR |
-|----------|-----|
-| nuget.org | 92 |
-| docs.microsoft.com | 95 |
+| Package | Description |
+|---------|-------------|
+| `TanStackShip.UtmParse` | UTM parameter parsing |
 
-## 📁 Structure
+## Installation
 
+```bash
+dotnet add package TanStackShip.UtmParse
 ```
-.net/
-└── TanStackShip.UtmParse/
-    ├── TanStackShip.UtmParse.csproj
-    ├── UtmParams.cs
-    └── UtmParser.cs
-```
+
+## License
+
+MIT © [Huifer](https://tanstackship.com/about)

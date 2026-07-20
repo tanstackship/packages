@@ -1,132 +1,70 @@
-# TanStack Ship Packages
+# TanStack Ship
 
-> Open source packages for modern web development
+> Open-source SaaS boilerplate packages across 20+ ecosystems.
 
-## Packages
+[![Website](https://img.shields.io/badge/Website-tanstackship.com-blue)](https://tanstackship.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-### JavaScript / TypeScript
+## 🌐 Links
 
-| Package | Description |
-|---------|-------------|
-| [`@tanstackship/utm-tracker`](packages/utm-tracker) | UTM tracking & attribution |
-| [`@tanstackship/short-link`](packages/short-link) | Short link & URL tracking |
-| [`@tanstackship/pricing-engine`](packages/pricing-engine) | Dynamic pricing engine |
-| [`@tanstackship/schema-builder`](packages/schema-builder) | JSON-LD Schema generator |
-| [`@tanstackship/auth`](packages/auth) | Authentication utilities |
-| [`@tanstackship/stripe-utils`](packages/stripe-utils) | Stripe integration |
-| [`@tanstackship/i18n`](packages/i18n) | Internationalization |
-| [`@tanstackship/rate-limit`](packages/rate-limit) | Rate limiting |
-| [`@tanstackship/utm-mcp-server`](mcp-server/utm-mcp-server) | MCP server for AI agents |
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs](https://tanstackship.com/docs)
+- **Discord**: [https://tanstackship.com/discord](https://tanstackship.com/discord)
+- **npm**: [https://www.npmjs.com/org/tanstackship](https://www.npmjs.com/org/tanstackship)
+- **GitHub**: [https://github.com/tanstackship/packages](https://github.com/tanstackship/packages)
 
-### Rust
+## 📦 Packages (30+)
 
-| Package | Crates.io | Description |
-|---------|-----------|-------------|
-| [`utm-parse`](rust/utm-parse) | [crates.io](https://crates.io/crates/utm-parse) | UTM parsing library |
-| [`short-link-parse`](rust/short-link-parse) | [crates.io](https://crates.io/crates/short-link-parse) | URL fingerprinting |
-
-### Python
-
-| Package | PyPI | Description |
-|---------|------|-------------|
-| [`utm-parse`](python/utm-parse) | [pypi.org](https://pypi.org/project/utm-parse) | UTM parsing library |
-
-### Go
+### JavaScript/TypeScript (npm)
 
 | Package | Description |
 |---------|-------------|
-| [`go-utm-parse`](go/utm-parse) | UTM parsing library |
+| `@tanstackship/utm-tracker` | UTM capture & storage |
+| `@tanstackship/analytics` | Multi-provider analytics SDK |
+| `@tanstackship/referral` | Referral system |
+| `@tanstackship/credits` | Credits/balance system |
+| `@tanstackship/coupons` | Coupon management |
+| `@tanstackship/events` | Event & webhook system |
+| `@tanstackship/campaigns` | Email campaigns |
+| `@tanstackship/social` | Social sharing |
+| `@tanstackship/stripe-utils` | Stripe utilities |
+| `@tanstackship/pricing-engine` | Pricing calculations |
+| `@tanstackship/rate-limit` | Rate limiting |
+| `@tanstackship/schema-builder` | Schema validation |
+| `@tanstackship/i18n` | Internationalization |
+| `@tanstackship/short-link` | URL shortener |
+| `@tanstackship/auth` | Auth utilities |
 
-### Java / Maven
+### Rust (crates.io)
 
-| Package | Maven Central | Description |
-|---------|---------------|-------------|
-| [`utm-parse`](java/utm-parse) | 📋 Plan | UTM parsing library |
+- `tanstack_utm_parse` - UTM parsing
+- `tanstack_short_link_parse` - Short link parsing
 
-### .NET / NuGet
+### Python, Go, Java, .NET, Ruby, PHP, Dart, Swift + more...
 
-| Package | NuGet | Description |
-|---------|-------|-------------|
-| [`TanStackShip.UtmParse`](.net/TanStackShip.UtmParse) | 📋 Plan | UTM parsing library |
+See [https://tanstackship.com/packages](https://tanstackship.com/packages) for all packages.
 
-### Ruby / RubyGems
+## 🚀 Quick Start
 
-| Package | RubyGems | Description |
-|---------|----------|-------------|
-| [`utm_parse`](ruby/utm_parse) | 📋 Plan | UTM parsing library |
+```bash
+# Install any npm package
+npm install @tanstackship/utm-tracker
 
-### PHP / Composer
+# Or use Rust
+cargo add tanstack_utm_parse
 
-| Package | Packagist | Description |
-|---------|-----------|-------------|
-| [`tanstackship/utm-parse`](php-conpackist/tanstackship-utm-parse) | 📋 Plan | UTM parsing library |
+# Or Python
+pip install tanstack-utm-parse
+```
 
-### Dart / Pub
+## 📚 Documentation
 
-| Package | pub.dev | Description |
-|---------|---------|-------------|
-| [`utm_parse`](dart-pub/utm_parse) | 📋 Plan | UTM parsing library |
+Full documentation available at [https://tanstackship.com/docs](https://tanstackship.com/docs)
 
-### Swift / SPM
+## 🤝 Contributing
 
-| Package | Swift Package Registry | Description |
-|---------|----------------------|-------------|
-| [`UtmParse`](swift) | 📋 Plan | UTM parsing library |
+Contributions welcome! Please read our [Contributing Guide](https://github.com/tanstackship/packages/blob/main/CONTRIBUTING.md).
 
-### iOS / CocoaPods
+## 📄 License
 
-| Pod | CocoaPods | Description |
-|-----|----------|-------------|
-| [`UtmParse`](cocoapods/UtmParse) | 📋 Plan | UTM parsing library |
-
-### GitHub Actions
-
-| Action | Description |
-|--------|-------------|
-| [`utm-capture-action`](actions/utm-capture-action) | Capture UTM parameters |
-
-### VS Code
-
-| Extension | Description |
-|----------|-------------|
-| [`tanstack-ship-snippets`](vscode-extension/tanstack-ship-snippets) | Code snippets |
-
-### Chrome Extension
-
-| Extension | Description |
-|----------|-------------|
-| [`utm-inspector`](chrome-extension/utm-inspector) | Debug UTM parameters |
-
-### WordPress Plugin
-
-| Plugin | Description |
-|--------|-------------|
-| [`utm-tracker`](wordpress/utm-tracker) | Track UTM in WordPress |
-
-### Docker
-
-| Image | Description |
-|-------|-------------|
-| [`utm-worker`](docker/utm-worker) | UTM tracking Worker |
-
-### Homebrew
-
-| Formula | Description |
-|---------|-------------|
-| [`utm-cli`](homebrew-tap/utm-cli) | CLI tool |
-
-### Cloudflare
-
-| Template | Description |
-|---------|-------------|
-| [`tanstackship-utm-worker`](cloudflare-template/tanstackship-utm-worker) | UTM tracking Worker |
-
-## Links
-
-- [TanStack Ship](https://tanstackship.com)
-- [GitHub](https://github.com/orgs/tanstackship)
-- [Main Template](https://github.com/orgs/tanstackship/templates)
-
-## License
-
-MIT
+MIT © [Huifer](https://tanstackship.com/about)

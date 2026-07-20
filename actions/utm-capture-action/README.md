@@ -1,13 +1,16 @@
 # UTM Capture GitHub Action
 
-> Capture UTM parameters from referrer URLs in GitHub Actions workflows.
+> Capture UTM parameters from git commits and pull requests in CI/CD workflows.
 
-## Features
+[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-tanstackship.com-blue)](https://tanstackship.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- 🎯 Capture standard UTM parameters
-- 📱 Auto-detect platform from click IDs (gclid, fbclid, etc.)
-- 🔄 Map non-standard params (ref, source, via)
-- ⚡ Zero dependencies
+## 🌐 Links
+
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/actions](https://tanstackship.com/docs)
+- **GitHub Marketplace**: [https://github.com/marketplace](https://github.com/marketplace)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
 ## Usage
 
@@ -15,19 +18,21 @@
 - name: Capture UTM
   uses: tanstackship/utm-capture-action@v1
   with:
-    ref: ${{ github.event.client_payload.ref }}
+    ref: ${{ github.event.head_commit.message }}
 
-- name: Use UTM values
+- name: Use UTM
   run: |
     echo "Source: ${{ steps.utm.outputs.utm_source }}"
-    echo "Campaign: ${{ steps.utm.outputs.utm_campaign }}"
 ```
 
 ## Inputs
 
-| Input | Description | Required |
-|-------|-------------|----------|
-| `ref` | URL or string containing UTM params | No |
+| Input | Description |
+|-------|-------------|
+| `ref` | Text to parse |
+| `source` | Override source |
+| `medium` | Set UTM medium |
+| `campaign` | Set UTM campaign |
 
 ## Outputs
 
@@ -36,8 +41,7 @@
 | `utm_source` | UTM source |
 | `utm_medium` | UTM medium |
 | `utm_campaign` | UTM campaign |
-| `utm_term` | UTM term |
-| `utm_content` | UTM content |
+| `utm_json` | All params as JSON |
 
 ## License
 

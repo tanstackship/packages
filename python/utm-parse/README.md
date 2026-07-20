@@ -1,59 +1,38 @@
-# utm-parse
+# tanstack-utm-parse
 
-> Fast UTM parameter parsing and normalization library for Python.
+> UTM parameter parsing for Python.
 
-[![PyPI version](https://badge.fury.io/py/utm-parse.svg)](https://badge.fury.io/py/utm-parse)
+[![PyPI](https://img.shields.io/badge/PyPI-tanstackship.com-blue)](https://pypi.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Features
+## 🌐 Links
 
-- 🚀 **Fast** - Zero dependencies, pure Python
-- 🔄 **Auto-mapping** - Non-standard params → utm_source
-- 📱 **Platform detection** - gclid, fbclid, ttclid, etc.
-- 🎯 **Type-safe** - Full type hints
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/python](https://tanstackship.com/docs)
+- **PyPI**: [https://pypi.org/project/tanstack-utm-parse](https://pypi.org/project/tanstack-utm-parse)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
 ## Installation
 
 ```bash
-pip install utm-parse
+pip install tanstack-utm-parse
 ```
 
 ## Quick Start
 
 ```python
-from utm_parse import parse_utm_from_url, normalize
+from tanstack_utm_parse import parse_url
 
-# Parse UTM from URL
-params = parse_utm_from_url(
-    "https://example.com?utm_source=google&utm_campaign=spring_sale"
-)
-
-print(params.utm_source)   # 'google'
-print(params.utm_campaign) # 'spring_sale'
+params = parse_url("https://example.com?utm_source=google&utm_campaign=spring")
+print(params.source)  # google
+print(params.medium)  # cpc
 ```
 
-## Platform Click ID Detection
+## Features
 
-Automatically detects platform from click IDs:
-
-| Platform | Click ID | Maps to |
-|----------|----------|---------|
-| Google | `gclid` | `utm_source: 'google'` |
-| Facebook | `fbclid` | `utm_source: 'facebook'` |
-| Bing | `msclkid` | `utm_source: 'bing'` |
-| TikTok | `ttclid` | `utm_source: 'tiktok'` |
-| LinkedIn | `li_fat_id` | `utm_source: 'linkedin'` |
-
-## Non-Standard Parameter Mapping
-
-Maps common params to utm_source:
-
-```python
-# ref=producthunt
-params = parse_utm_from_url("https://example.com?ref=producthunt")
-# params.utm_source = 'producthunt'
-# params.raw_param = 'ref'
-```
+- 🐍 Pure Python
+- ⚡ Fast
+- 🔍 Platform auto-detection
 
 ## License
 

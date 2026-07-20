@@ -1,40 +1,26 @@
 # Docker Images
 
-> TanStack Ship 相关的 Docker 镜像
+> TanStack Ship Docker images for SaaS infrastructure.
 
-## 📦 镜像列表
+## 🌐 Links
 
-| 镜像 | 描述 | 状态 |
-|------|------|------|
-| `ghcr.io/tanstackship/utm-worker` | UTM 追踪 Worker | 🔄 开发中 |
-| `ghcr.io/tanstackship/short-link-worker` | 短链接 Worker | 📋 计划 |
+- **Website**: [https://tanstackship.com](https://tanstackship.com)
+- **Documentation**: [https://tanstackship.com/docs/docker](https://tanstackship.com/docs)
+- **Docker Hub**: [https://hub.docker.com/u/tanstackship](https://hub.docker.com)
+- **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
-## 🔗 外链价值
+## Images
 
-| 平台 | DR | 外链位置 |
-|------|-----|----------|
-| github.com | 96 | Container Registry |
-| ghcr.io | 85 | 镜像页面 |
-| docker.com | 94 | Hub 页面 (如有) |
+| Image | Description |
+|-------|-------------|
+| `tanstackship/utm-worker` | UTM tracking worker |
 
-## 📁 结构
-
-```
-docker/
-├── utm-worker/
-│   ├── Dockerfile
-│   └── wrangler.toml
-└── short-link-worker/
-    └── ...
-```
-
-## 🚀 发布
+## Installation
 
 ```bash
-# 登录 GitHub Container Registry
-echo $GITHUB_TOKEN | docker login ghcr.io -u USERNAME --password-stdin
-
-# 构建并推送
-docker build -t ghcr.io/tanstackship/utm-worker:latest utm-worker/
-docker push ghcr.io/tanstackship/utm-worker:latest
+docker pull tanstackship/utm-worker:latest
 ```
+
+## License
+
+MIT © [Huifer](https://tanstackship.com/about)
