@@ -1,5 +1,5 @@
 {
-  "name": "@tanstackship/pricing-engine",
+  "name": "@huifer/pricing-engine",
   "version": "0.0.1",
   "description": "Dynamic pricing engine with coupon/offer stacking, percentage and fixed discounts for SaaS applications.",
   "keywords": ["pricing", "coupon", "discount", "saas", "stripe", "tanstack"],

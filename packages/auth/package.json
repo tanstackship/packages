@@ -1,5 +1,5 @@
 {
-  "name": "@tanstackship/auth",
+  "name": "@huifer/auth",
   "version": "1.0.0",
   "description": "Authentication utilities for web apps. Password hashing, sessions, and OAuth helpers.",
   "keywords": ["auth", "authentication", "session", "password", "oauth", "tanstack"],

@@ -1,5 +1,5 @@
 {
-  "name": "@tanstackship/social",
+  "name": "@huifer/social",
   "version": "1.0.0",
   "description": "Social sharing and embed utilities for SaaS apps.",
   "keywords": ["social", "share", "embed", "saas", "tanstack"],

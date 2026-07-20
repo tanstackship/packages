@@ -1,5 +1,5 @@
 {
-  "name": "@tanstackship/stripe-utils",
+  "name": "@huifer/stripe-utils",
   "version": "0.0.1",
   "description": "Stripe integration utilities for TanStack apps. Webhook handling, checkout flows, and subscription management helpers.",
   "keywords": ["stripe", "payments", "subscription", "checkout", "tanstack"],

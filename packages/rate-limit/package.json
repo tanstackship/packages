@@ -1,5 +1,5 @@
 {
-  "name": "@tanstackship/rate-limit",
+  "name": "@huifer/rate-limit",
   "version": "0.0.1",
   "description": "Rate limiting middleware for Cloudflare Workers. KV-based rate limiting with configurable windows and limits.",
   "keywords": ["rate-limit", "middleware", "cloudflare", "workers", "tanstack"],

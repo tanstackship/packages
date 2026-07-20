@@ -66,3 +66,9 @@ export type UtmCampaign = (typeof CAMPAIGN_OPTIONS)[number]
 
 /** 标记"自定义输入"的 sentinel 值，用于 Select 组件中区分预设项和自定义项 */
 export const OTHER_VALUE = '__other__'
+
+/** Cookie name for UTM storage */
+export const UTM_COOKIE_NAME = 'utm_params'
+
+/** Cookie max age in seconds (30 days) */
+export const UTM_COOKIE_MAX_AGE = 60 * 60 * 24 * 30

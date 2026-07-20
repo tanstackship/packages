@@ -2,7 +2,7 @@
  * Client-side short link utilities
  */
 
-import type { ShortLink } from './types'
+// ShortLink removed from './types'
 
 /**
  * Build short link URL for site KV

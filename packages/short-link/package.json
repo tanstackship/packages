@@ -1,5 +1,5 @@
 {
-  "name": "@tanstackship/short-link",
+  "name": "@huifer/short-link",
   "version": "0.0.1",
   "description": "Short link & URL tracking system with UTM integration. Build your own link-in-bio or URL shortener.",
   "keywords": ["short-link", "url-shortener", "link-tracking", "utm", "tanstack"],

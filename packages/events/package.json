@@ -1,5 +1,5 @@
 {
-  "name": "@tanstackship/events",
+  "name": "@huifer/events",
   "version": "1.0.0",
   "description": "Event tracking and webhooks system for SaaS apps.",
   "keywords": ["events", "webhooks", "saas", "tanstack"],

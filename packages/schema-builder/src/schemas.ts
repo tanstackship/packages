@@ -5,11 +5,8 @@
  */
 
 import type {
-  FAQItem,
-  BreadcrumbItem,
   SchemaOffer,
   PersonInfo,
-  BlogPostInfo,
   FAQPageOptions,
   ProductSchemaOptions,
   BlogPostingOptions,

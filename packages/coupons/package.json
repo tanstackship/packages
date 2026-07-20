@@ -1,5 +1,5 @@
 {
-  "name": "@tanstackship/coupons",
+  "name": "@huifer/coupons",
   "version": "1.0.0",
   "description": "Coupon and discount code management for SaaS. Create, validate, and track coupon usage.",
   "keywords": ["coupon", "discount", "promo", "saas", "tanstack"],

@@ -1,13 +1,13 @@
 {
-  "name": "@huifer/credits",
+  "name": "@huifer/analytics",
   "version": "1.0.0",
-  "description": "Credits/balance system for SaaS apps. Track user balance, transactions, and usage-based billing.",
-  "keywords": ["credits", "balance", "billing", "saas", "tanstack"],
+  "description": "Multi-provider analytics SDK with consent management, batching, and GDPR compliance.",
+  "keywords": ["analytics", "tracking", "gdpr", "saas", "huifer"],
   "homepage": "https://tanstackship.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/orgs/tanstackship",
-    "directory": "packages/credits"
+    "url": "https://github.com/tanstackship/packages",
+    "directory": "packages/analytics"
   },
   "license": "MIT",
   "author": { "name": "Huifer", "email": "about@tanstackship.com" },
@@ -20,12 +20,10 @@
   "files": ["dist"],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
-    "test": "vitest",
     "prepublishOnly": "pnpm build"
   },
   "devDependencies": {
     "tsup": "^8.0.0",
-    "typescript": "^5.0.0",
-    "vitest": "^1.0.0"
+    "typescript": "^5.0.0"
   }
 }

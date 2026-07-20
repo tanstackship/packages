@@ -1,5 +1,5 @@
 {
-  "name": "@tanstackship/i18n",
+  "name": "@huifer/i18n",
   "version": "0.0.1",
   "description": "Internationalization utilities for TanStack apps. JSON-based translations, language detection, and hreflang helpers.",
   "keywords": ["i18n", "internationalization", "translation", "locale", "tanstack"],

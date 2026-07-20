@@ -1,6 +1,6 @@
-# TanStack Ship Docker - UTM Worker
+# TanStack Ship UTM Worker (Docker)
 
-> Docker image for running UTM tracking worker at scale.
+> Docker image for running UTM tracking worker at scale
 
 [![Docker](https://img.shields.io/badge/Docker-tanstackship.com-blue)](https://tanstackship.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -8,7 +8,7 @@
 ## 🌐 Links
 
 - **Website**: [https://tanstackship.com](https://tanstackship.com)
-- **Documentation**: [https://tanstackship.com/docs/docker](https://tanstackship.com/docs)
+- **Documentation**: [https://tanstackship.com/docs](https://tanstackship.com/docs)
 - **Docker Hub**: [https://hub.docker.com/r/tanstackship/utm-worker](https://hub.docker.com)
 - **Issues**: [https://github.com/tanstackship/packages/issues](https://github.com/tanstackship/packages/issues)
 
@@ -34,7 +34,6 @@ docker run -p 8787:8787 \
 | `PORT` | Server port (default: 8787) |
 | `KV_REST_API_URL` | Cloudflare KV REST API URL |
 | `KV_REST_API_TOKEN` | Cloudflare KV API token |
-| `POSTHOG_API_KEY` | PostHog API key (optional) |
 
 ## Docker Compose
 

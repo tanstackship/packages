@@ -1,5 +1,5 @@
 {
-  "name": "@tanstackship/schema-builder",
+  "name": "@huifer/schema-builder",
   "version": "0.0.1",
   "description": "JSON-LD Schema.org generator for web apps. Build FAQPage, Product, BlogPosting, SoftwareApplication schemas easily.",
   "keywords": ["seo", "schema", "json-ld", "structured-data", "schema.org", "tanstack"],

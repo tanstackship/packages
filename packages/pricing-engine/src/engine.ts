@@ -9,7 +9,6 @@ import { z } from 'zod'
 import type {
   Price,
   Offer,
-  OfferType,
   PricingInput,
   PricingResult,
   AppliedOfferDetail,

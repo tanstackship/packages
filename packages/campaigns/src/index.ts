@@ -2,8 +2,6 @@
  * Campaign System
  */
 
-import { randomUUID } from 'crypto'
-
 export interface Campaign {
   id: string
   name: string
@@ -16,19 +14,20 @@ export interface Campaign {
 }
 
 export interface CampaignSystem {
-  createCampaign(data: { name: string; subject: string; template: string; segment?: string }): Promise<Campaign>
-  sendToSegment(data: { campaignId: string; segment: string }): Promise<void>
+  createCampaign(data: { name: string; subject: string; template: string }): Promise<Campaign>
+  sendToSegment(data: { campaignId: string }): Promise<void>
   trackOpen(campaignId: string): Promise<void>
-  trackClick(campaignId: string, link: string): Promise<void>
+  trackClick(campaignId: string): Promise<void>
 }
 
 export function createCampaignSystem(): CampaignSystem {
   const campaigns: Map<string, Campaign> = new Map()
 
   return {
-    async createCampaign({ name, subject, template, segment }) {
+    async createCampaign({ name, subject, template }) {
+      const id = Math.random().toString(36).substring(7)
       const campaign: Campaign = {
-        id: randomUUID(),
+        id,
         name,
         subject,
         template,
@@ -36,11 +35,11 @@ export function createCampaignSystem(): CampaignSystem {
         stats: { sent: 0, opens: 0, clicks: 0, bounces: 0 },
         createdAt: new Date().toISOString(),
       }
-      campaigns.set(campaign.id, campaign)
+      campaigns.set(id, campaign)
       return campaign
     },
 
-    async sendToSegment({ campaignId, segment }) {
+    async sendToSegment({ campaignId }) {
       const campaign = campaigns.get(campaignId)
       if (campaign) {
         campaign.status = 'sending'

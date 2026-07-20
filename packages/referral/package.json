@@ -1,5 +1,5 @@
 {
-  "name": "@tanstackship/referral",
+  "name": "@huifer/referral",
   "version": "1.0.0",
   "description": "Referral system for SaaS apps. Create referral links, track referrals, and manage rewards.",
   "keywords": ["referral", "affiliate", "rewards", "saas", "tanstack"],

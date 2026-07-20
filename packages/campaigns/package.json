@@ -1,5 +1,5 @@
 {
-  "name": "@tanstackship/campaigns",
+  "name": "@huifer/campaigns",
   "version": "1.0.0",
   "description": "Email campaign management. Send transactional and marketing emails.",
   "keywords": ["email", "campaign", "marketing", "saas", "tanstack"],

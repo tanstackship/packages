@@ -1,5 +1,5 @@
 {
-  "name": "@tanstackship/utm-tracker",
+  "name": "@huifer/utm-tracker",
   "version": "1.0.0",
   "description": "UTM tracking & attribution system for web apps. Capture, store, and resolve UTM parameters with first-touch and last-touch support.",
   "keywords": [
