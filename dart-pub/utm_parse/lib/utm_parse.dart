@@ -1,6 +1,4 @@
-/// UTM Parse - Fast UTM parameter parsing for Dart and Flutter
-library utm_parse;
-
+// Export everything from src
 export 'src/utm_params.dart';
 export 'src/utm_parser.dart';
 
@@ -10,10 +8,8 @@ export 'src/utm_parser.dart';
 /// import 'package:utm_parse/utm_parse.dart';
 ///
 /// void main() {
-///   final params = parseUrl("https://example.com?utm_source=google&utm_campaign=spring");
+///   final params = parseUrl("https://example.com?utm_source=google");
 ///   print(params.source); // google
 /// }
-/// ```
-UtmParams parseUrl(String url) {
-  return UtmParser.parse(url);
-}
+/// 
+UtmParams parseUrl(String url) => UtmParser.parse(url);
