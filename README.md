@@ -16,6 +16,7 @@
 | [`@tanstackship/stripe-utils`](packages/stripe-utils) | Stripe integration |
 | [`@tanstackship/i18n`](packages/i18n) | Internationalization |
 | [`@tanstackship/rate-limit`](packages/rate-limit) | Rate limiting |
+| [`@tanstackship/utm-mcp-server`](mcp-server/utm-mcp-server) | MCP server for AI agents |
 
 ### Rust
 
@@ -35,6 +36,90 @@
 | Package | Description |
 |---------|-------------|
 | [`go-utm-parse`](go/utm-parse) | UTM parsing library |
+
+### Java / Maven
+
+| Package | Maven Central | Description |
+|---------|---------------|-------------|
+| [`utm-parse`](java/utm-parse) | 📋 Plan | UTM parsing library |
+
+### .NET / NuGet
+
+| Package | NuGet | Description |
+|---------|-------|-------------|
+| [`TanStackShip.UtmParse`](.net/TanStackShip.UtmParse) | 📋 Plan | UTM parsing library |
+
+### Ruby / RubyGems
+
+| Package | RubyGems | Description |
+|---------|----------|-------------|
+| [`utm_parse`](ruby/utm_parse) | 📋 Plan | UTM parsing library |
+
+### PHP / Composer
+
+| Package | Packagist | Description |
+|---------|-----------|-------------|
+| [`tanstackship/utm-parse`](php-conpackist/tanstackship-utm-parse) | 📋 Plan | UTM parsing library |
+
+### Dart / Pub
+
+| Package | pub.dev | Description |
+|---------|---------|-------------|
+| [`utm_parse`](dart-pub/utm_parse) | 📋 Plan | UTM parsing library |
+
+### Swift / SPM
+
+| Package | Swift Package Registry | Description |
+|---------|----------------------|-------------|
+| [`UtmParse`](swift) | 📋 Plan | UTM parsing library |
+
+### iOS / CocoaPods
+
+| Pod | CocoaPods | Description |
+|-----|----------|-------------|
+| [`UtmParse`](cocoapods/UtmParse) | 📋 Plan | UTM parsing library |
+
+### GitHub Actions
+
+| Action | Description |
+|--------|-------------|
+| [`utm-capture-action`](actions/utm-capture-action) | Capture UTM parameters |
+
+### VS Code
+
+| Extension | Description |
+|----------|-------------|
+| [`tanstack-ship-snippets`](vscode-extension/tanstack-ship-snippets) | Code snippets |
+
+### Chrome Extension
+
+| Extension | Description |
+|----------|-------------|
+| [`utm-inspector`](chrome-extension/utm-inspector) | Debug UTM parameters |
+
+### WordPress Plugin
+
+| Plugin | Description |
+|--------|-------------|
+| [`utm-tracker`](wordpress/utm-tracker) | Track UTM in WordPress |
+
+### Docker
+
+| Image | Description |
+|-------|-------------|
+| [`utm-worker`](docker/utm-worker) | UTM tracking Worker |
+
+### Homebrew
+
+| Formula | Description |
+|---------|-------------|
+| [`utm-cli`](homebrew-tap/utm-cli) | CLI tool |
+
+### Cloudflare
+
+| Template | Description |
+|---------|-------------|
+| [`tanstackship-utm-worker`](cloudflare-template/tanstackship-utm-worker) | UTM tracking Worker |
 
 ## Links
 

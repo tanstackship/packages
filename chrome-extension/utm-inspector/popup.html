@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { width: 300px; padding: 16px; font-family: system-ui, sans-serif; }
+    h1 { font-size: 16px; margin-bottom: 12px; }
+    .param { display: flex; padding: 8px 0; border-bottom: 1px solid #eee; }
+    .param:last-child { border-bottom: none; }
+    .label { font-weight: 600; width: 100px; }
+    .value { flex: 1; word-break: break-all; }
+    .no-utm { color: #666; font-style: italic; }
+    .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 11px; }
+    .badge-active { background: #4CAF50; color: white; }
+    .badge-none { background: #ddd; color: #666; }
+  </style>
+</head>
+<body>
+  <h1>UTM Inspector</h1>
+  <div id="results">
+    <p class="no-utm">Detecting...</p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

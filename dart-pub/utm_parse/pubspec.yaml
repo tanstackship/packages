@@ -1,0 +1,20 @@
+name: utm_parse
+description: Fast UTM parameter parsing library for Dart
+version: 0.1.0
+repository: https://github.com/orgs/tanstackship
+homepage: https://tanstackship.com
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+
+dev_dependencies:
+  test: ^1.24.0
+  lints: ^3.0.0
+
+topics:
+  - utm
+  - analytics
+  - tracking
+  - marketing

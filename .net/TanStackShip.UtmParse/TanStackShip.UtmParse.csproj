@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>TanStackShip.UtmParse</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Huifer</Authors>
+    <Company>TanStack Ship</Company>
+    <Description>Fast UTM parameter parsing library for .NET</Description>
+    <PackageTags>utm;parsing;analytics;tracking</PackageTags>
+    <PackageProjectUrl>https://tanstackship.com</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/orgs/tanstackship</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+</Project>

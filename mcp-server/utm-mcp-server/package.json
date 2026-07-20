@@ -1,0 +1,20 @@
+{
+  "name": "@tanstackship/utm-mcp-server",
+  "version": "1.0.0",
+  "description": "UTM parsing MCP server for AI agents",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": ["mcp", "model-context-protocol", "utm", "ai"],
+  "homepage": "https://tanstackship.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orgs/tanstackship",
+    "directory": "mcp-server/utm-mcp-server"
+  },
+  "license": "MIT",
+  "author": "Huifer <about@tanstackship.com>"
+}

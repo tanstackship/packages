@@ -1,0 +1,30 @@
+{
+    "name": "tanstackship/utm-parse",
+    "description": "Fast UTM parameter parsing library for PHP",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "TanStackShip\\UtmParse\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Huifer",
+            "email": "about@tanstackship.com",
+            "homepage": "https://tanstackship.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "homepage": "https://tanstackship.com",
+    "support": {
+        "issues": "https://github.com/orgs/tanstackship/issues",
+        "source": "https://github.com/orgs/tanstackship"
+    }
+}
