@@ -19,14 +19,14 @@ fn parse_query_string(query: &str, params: &mut UtmParams) {
         let (key, value) = if let Some(eq) = pair.find('=') {
             let k = &pair[..eq];
             let v = &pair[eq + 1..];
-            (k, url_decode(v))
+            (k, decode_percent(v))
         } else {
-            (pair, String::new())
+            (pair, pair.to_string())
         };
 
         match key {
             "utm_source" => {
-                params.source = Some(detect_source(value));
+                params.source = Some(detect_source(&value));
             }
             "utm_medium" => {
                 params.medium = Some(value);
@@ -55,7 +55,7 @@ fn parse_query_string(query: &str, params: &mut UtmParams) {
 fn detect_source(value: &str) -> Source {
     match value.to_lowercase().as_str() {
         "google" | "g" => Source::Google,
-        "facebook" | "fb" | "social" => Source::Facebook,
+        "facebook" | "fb" => Source::Facebook,
         "twitter" | "tw" => Source::Twitter,
         "linkedin" | "li" => Source::LinkedIn,
         "bing" | "ms" => Source::Bing,
@@ -75,20 +75,18 @@ fn detect_platform(platform: &str) -> Source {
         "linkedin" => Source::LinkedIn,
         "bing" => Source::Bing,
         "tiktok" => Source::TikTok,
-        "reddit" => Source::Reddit,
-        "github" => Source::Github,
         _ => Source::Unknown(platform.to_string()),
     }
 }
 
-fn url_decode(s: &str) -> String {
+fn decode_percent(s: &str) -> String {
     let mut result = String::new();
     let mut chars = s.chars().peekable();
 
     while let Some(c) = chars.next() {
         if c == '%' {
             let hex: String = chars.by_ref().take(2).collect();
-            if let Ok(byte) in u8::from_str_radix(&hex, 16) {
+            if let Ok(byte) = u8::from_str_radix(&hex, 16) {
                 result.push(byte as char);
             } else {
                 result.push('%');
