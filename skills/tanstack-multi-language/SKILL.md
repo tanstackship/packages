@@ -1,8 +1,14 @@
 ---
 name: tanstack-multi-language
+identifier: tanstackship-tanstack-multi-language
 description: |
   为 TanStack Ship 项目快速添加多语言(i18n)支持。当你需要为项目添加国际化功能、创建语言文件、或实现多语言切换时使用此 skill。支持 React/Next.js、Vue、Svelte 等主流框架，自动生成翻译文件和语言切换组件。
 allowed-tools: Read, Write, Edit, Bash
+version: 1.0.0
+author: TanStack Ship
+homepage: https://tanstackship.com
+repository: https://github.com/tanstackship/packages
+tags: i18n,multi-language,localization,translation,react,nextjs,vue
 ---
 
 # TanStack Multi-Language
