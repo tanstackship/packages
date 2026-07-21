@@ -1,0 +1,10 @@
+# Dart
+.dart_tool/
+.pub/
+build/
+.pubspec.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp

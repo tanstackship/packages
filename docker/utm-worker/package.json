@@ -1,0 +1,10 @@
+{
+  "name": "tanstackship-utm-worker",
+  "version": "1.0.0",
+  "description": "UTM tracking worker for Cloudflare Workers",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "echo 'Build complete' && mkdir -p dist && cp src/index.js dist/"
+  },
+  "dependencies": {}
+}
