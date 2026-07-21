@@ -1,0 +1,33 @@
+{
+  "name": "@tanstackship/skill-saas-scaffold",
+  "version": "1.0.0",
+  "description": "TanStack Ship SaaS Scaffold Skill for AI Assistants",
+  "keywords": [
+    "tanstack",
+    "saas",
+    "scaffold",
+    "boilerplate",
+    "template",
+    "fullstack",
+    "claude-code",
+    "cline",
+    "openclaw",
+    "skill"
+  ],
+  "homepage": "https://tanstackship.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tanstackship/packages",
+    "directory": "skills/tanstack-saas-scaffold"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Huifer",
+    "email": "about@tanstackship.com"
+  },
+  "scripts": {
+    "publish:claude-code": "echo 'Publishing to Claude Code skills directory...'",
+    "publish:cline": "echo 'Publishing to Cline skills directory...'",
+    "publish:openclaw": "echo 'Publishing to OpenClaw skills directory...'"
+  }
+}
