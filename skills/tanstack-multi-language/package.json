@@ -1,0 +1,31 @@
+{
+  "name": "@tanstackship/skill-multi-language",
+  "version": "1.0.0",
+  "description": "TanStack Ship Multi-Language Skill for AI Assistants",
+  "keywords": [
+    "tanstack",
+    "i18n",
+    "multi-language",
+    "translation",
+    "claude-code",
+    "cline",
+    "openclaw",
+    "skill"
+  ],
+  "homepage": "https://tanstackship.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tanstackship/packages",
+    "directory": "skills/tanstack-multi-language"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Huifer",
+    "email": "about@tanstackship.com"
+  },
+  "scripts": {
+    "publish:claude-code": "echo 'Publishing to Claude Code skills directory...'",
+    "publish:cline": "echo 'Publishing to Cline skills directory...'",
+    "publish:openclaw": "echo 'Publishing to OpenClaw skills directory...'"
+  }
+}
